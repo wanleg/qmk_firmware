@@ -146,13 +146,24 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
 		SEND_STRING(SS_LGUI("l"));
 		backlight_set(3);
 		break;
-    case SINGLE_HOLD: register_code(KC_NO); break; //register this keycode when button is held
+    case SINGLE_HOLD: 
+		//register_code(KC_NO);
+		//take a screenshot of a single window, open Paint and paste
+		SEND_STRING(SS_LALT(SS_TAP(X_PSCREEN)) SS_LGUI("r"));
+        _delay_ms(500);
+        SEND_STRING("mspaint" SS_TAP(X_ENTER));
+        _delay_ms(500);
+        SEND_STRING(SS_LCTRL("v"));
+		break; //register this keycode when button is held
     case DOUBLE_TAP: 
 		//register_code(KC_ENT); 
 		SEND_STRING(SS_LCTRL(SS_LALT(SS_TAP(X_DELETE))));
 		backlight_set(0);
 		break;
-    case DOUBLE_HOLD: register_code(KC_NO); break; //register this keycode when button is tapped and then held
+    //case DOUBLE_HOLD: register_code(KC_NO); break; //register this keycode when button is tapped and then held
+	case DOUBLE_HOLD: 
+		register_code(KC_NO); 
+		break; //register this keycode when button is tapped and then held
     case DOUBLE_SINGLE_TAP: register_code(KC_NO); unregister_code(KC_NO); register_code(KC_NO);
     //Last case is for fast typing. Assuming your key is `f`:
     //For example, when typing the word `buffer`, and you want to make sure that you send `ff` and not `Esc`.
@@ -167,13 +178,13 @@ void CAD_reset (qk_tap_dance_state_t *state, void *user_data) {
 		SEND_STRING(SS_LGUI("l"));
 		backlight_set(3);
 		break;
-    case SINGLE_HOLD: unregister_code(KC_NO); break; //(un)register this keycode when button is held and then released
+    case SINGLE_HOLD: register_code(KC_NO); break; //(un)register this keycode when button is held and then released
     case DOUBLE_TAP: 
 		//register_code(KC_ENT); 
 		SEND_STRING(SS_LCTRL(SS_LALT(SS_TAP(X_DELETE))));
 		backlight_set(0);
 		break;
-    case DOUBLE_HOLD: unregister_code(KC_NO); //(un)register this keycode when button is tapped and then held, and then released
+    case DOUBLE_HOLD: register_code(KC_NO); //(un)register this keycode when button is tapped and then held, and then released
     case DOUBLE_SINGLE_TAP: unregister_code(KC_NO);
   }
   CADtap_state.state = 0;
