@@ -57,10 +57,7 @@ void led_set_user(uint8_t usb_led) {
     if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
       DDRD  &= ~CAPSLOCK_PORT;
       PORTD &= ~CAPSLOCK_PORT;
-    } else {
-      DDRD  &= ~CAPSLOCK_PORT;
-      PORTD &= ~CAPSLOCK_PORT;
-    }
+    } 
 
     if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
       DDRD  |= SCROLLLOCK_PORT;
