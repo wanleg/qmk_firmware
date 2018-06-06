@@ -152,7 +152,7 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
 		SEND_STRING(SS_LALT(SS_TAP(X_PSCREEN)) SS_LGUI("r"));
         _delay_ms(500);
         SEND_STRING("mspaint" SS_TAP(X_ENTER));
-        _delay_ms(500);
+        _delay_ms(700);
         SEND_STRING(SS_LCTRL("v"));
 		break; //register this keycode when button is held
     case DOUBLE_TAP: 
@@ -178,7 +178,10 @@ void CAD_reset (qk_tap_dance_state_t *state, void *user_data) {
 		SEND_STRING(SS_LGUI("l"));
 		backlight_set(3);
 		break;
-    case SINGLE_HOLD: register_code(KC_NO); break; //(un)register this keycode when button is held and then released
+    case SINGLE_HOLD: 
+		register_code(KC_NO); //(un)register this keycode when button is held and then released
+		//SEND_STRING(SS_LCTRL("v"));
+		break; 
     case DOUBLE_TAP: 
 		//register_code(KC_ENT); 
 		SEND_STRING(SS_LCTRL(SS_LALT(SS_TAP(X_DELETE))));
