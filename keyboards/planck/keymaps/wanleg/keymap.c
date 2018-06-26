@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QW] = {
   {KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
   {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
-  {TD(TD_SFT_CAPS), 
+  {TD(TD_SFT_CAPS),
             KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_T(KC_ENT) },
   {KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SUBTER,  KC_LSFT, KC_SPC,  SUPRA,   KC_RGUI, KC_RALT, KC_DEL,  KC_RCTL}
 },
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .-----------------------------------------------------------------------------------------------------------.
  * | ESC    | Q//ESC | W      | E      | R      | T      | Y      | U      | I      | O      | P      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | TAB    | A      | S      | D      | F      | G      | H      | J      | K      | L      | ENTER  |  '     |
+ * | TAB    | A      | S      | D      | F      | G      | H      | J      | K      | L      | SPACE  |  '     |
  * |        |        |        |        |        |        |        |        |        |        |SFThold |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * |SFT/CAPS| Z      | X      | C      | V/gNUM | B/gETC | N      | M/gDIR | ,/GUI  | ./ALT  | BKSC   | ENT/SFT|
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GK] = {
   { KC_ESC, TD(TD_Q_ESC),   KC_W,    KC_E,    KC_R,           KC_T,          KC_Y,  KC_U,            KC_I,           KC_O,          KC_P,           KC_BSPC    },
   { KC_TAB, KC_A,           KC_S,    KC_D,    KC_F,           KC_G,          KC_H,  KC_J,            KC_K,           KC_L,          SFT_T(KC_SPC),  KC_QUOT    },
-  { TD(TD_SFT_CAPS), 
+  { TD(TD_SFT_CAPS),
 			SFT_T(KC_Z),    KC_X,    KC_C,    LT(gNUM, KC_V), LT(gETC, KC_B),KC_N,  LT(gDIR, KC_M),  GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC), SFT_T(KC_ENT)},
   {KC_LCTL, KC_LGUI,        KC_LALT, KC_LALT, gNUMBER,        gETCETERA,     KC_SPC,gDIRECTION,      KC_RGUI,        KC_RALT,       KC_DEL,         KC_RCTL}
 },
