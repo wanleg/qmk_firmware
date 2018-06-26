@@ -13,6 +13,13 @@ Sft//Cp | shift | caps lock | *null*
 Q//Esc | KC_Q | escape | *null*
 
 # Gherkin Flashing
+## Windows
+1. The standard Gherin uses a ProMicro (or clone) microcontroller, and as such uses the Caterina bootloader by default.
+2. If you have never flashed your ProMicro with QMK before, you will need to short the RST pin to GND to put it into bootloader mode (you only have 7 seconds to flash once it enters). The ProMicro needs to be connected to your computer with a microUSB cable in order to be flashed.
+3. Once connected to your computer, you should be able to flash using 
+`make gherkin:<keymap>:avrdude`
+4. Once you've been able to successfully flash the ProMicro, you should be able to use the RESET key for future flashes (only tested using my keymap).
+
 ## Linux
 The ProMicro doesn't like dfu-programmer, so we have to use AVRdude. What follows below are instructions for Linux taken from https://deskthority.net/workshop-f7/how-to-use-a-pro-micro-as-a-cheap-controller-converter-like-soarer-s-t8448.html
 
@@ -37,11 +44,3 @@ If this still doesn't work, try running the command again as root
 
 `sudo avrdude -p atmega32u4 -P /dev/ttyACM0  -c avr109  -U flash:w:Soarer_at2usb_v1.12_atmega32u4.hex`
 
-## Windows
-1. Install the latest version of AVRdude for Windows from http://savannah.nongnu.org/projects/avrdude/  
-Test that it installed correctly by running "avrdude" from Command Prompt. It should display a usage message with version information at the end  
-2. Open Device Manager and take a look at your "Ports (COM & LPT)" section  
-3. Plug in the Gherkin and short the RESET pin on the microcontroller to Ground to put it into bootloader mode. Take note of the new COM device that shows up. After 8 seconds or so the microcontroller will leave bootloader mode and it will disappear from that section  
-4. Open Command Prompt and run the following (substituting "com7" with whatever port you saw earlier)  
-
-`avrdude -p atmega32u4 -P com7  -c avr109  -U flash:w:YOURHEX.hex`
