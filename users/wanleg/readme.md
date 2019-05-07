@@ -6,6 +6,7 @@
   * [STM32F103C8T6 Setup](#STM32F103C8T6-setup)
        * [Bootloader](#bootloader)
        * [Flashing QMK](#flashing-qmk)
+  * [Troubleshooting](#troubleshooting)
 
 ---
 ## Git Basics  
@@ -121,5 +122,13 @@ As of April 2019, the `:dfu-util` target doesn't work on a \*Pill. You will need
   If this is the first QMK flash on the \*Pill, you will need to synchronize your Reset Button-push with starting the command. By default, the \*Pill only stays in bootloader mode for about 3 seconds before returning to normal operation.  
 
 See [this page](https://docs.qmk.fm/#/faq_build?id=unknown-device-for-dfu-bootloader) if Windows can't see anything to upload to.  
+
+---
+# Troubleshooting
+
+| Issue | Solution |
+| --- | --- |
+| "invalid device signature" error when using avrdude to burn |  use Arduino IDE and an Arduino-as-ISP to burn the Leonardo bootloader first, then use avrdude as normal | 
+ 
 
 ---

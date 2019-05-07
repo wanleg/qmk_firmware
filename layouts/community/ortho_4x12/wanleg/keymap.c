@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______________GherkinLike_0_______________,
   _______________GherkinLike_1_______________,
   _______________GherkinLike_2_______________,
-  TD(RST_TAP_DANCE), KC_LGUI, KC_LALT, NUMPAD, NUMBER, ETCETERA, KC_SPC,DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
+  TD(RST_TAP_DANCE), KC_LGUI, KC_LALT, NUMPAD, NUMBER, ETCETERA, KC_SPC, DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
 ),
 
 [PAD] = LAYOUT_ortho_4x4_wrapper(
@@ -51,15 +51,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______________GherkinLike_2_______________,
   _______________GherkinLike_3_______________
 ),
-//this section needs fixing with ProMicro
-//doesn't seems to work properly
-[_FN] = LAYOUT_ortho_4x12_wrapper(
-  RESET,   _______________Gherkin_FN_0________________, _______,
-  _______, _______________Gherkin_FN_0________________, _______,
-  _______, _______________Gherkin_FN_0________________, _______,
-  _______, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______, _______
-),
-//end of section
 #endif
 [_QW] = LAYOUT_ortho_4x12_wrapper(
   _______________Qwerty_Row__0_______________,
@@ -104,10 +95,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_FN] = LAYOUT_ortho_4x12_wrapper(
+  RESET,   _______________Gherkin_FN_0________________, _______,
   _______, _______________Gherkin_FN_0________________, _______,
   _______, _______________Gherkin_FN_0________________, _______,
-  _______, _______________Gherkin_FN_0________________, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  KC_NLCK, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
-
 };

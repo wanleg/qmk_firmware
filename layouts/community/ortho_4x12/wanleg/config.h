@@ -20,7 +20,7 @@
 #define EE_HANDS
 #endif
 
-// set top left key as bootloader mode escape key on Nori
+// set left-most column, 2nd row from bottom key as bootloader mode escape key on Nori
 #if defined(KEYBOARD_40percentclub_nori) && defined(PRO_MICRO)
 #define QMK_LED B0
 #define QMK_ESC_OUTPUT F4 // usually COL
