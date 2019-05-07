@@ -21,10 +21,28 @@
 #endif
 
 // set top left key as bootloader mode escape key on Nori
-#if defined(KEYBOARD_40percentclub_nori)
+#if defined(KEYBOARD_40percentclub_nori) && defined(PRO_MICRO)
 #define QMK_LED B0
 #define QMK_ESC_OUTPUT F4 // usually COL
 #define QMK_ESC_INPUT D3 // usually ROW
+#endif
+
+#if defined(KEYBOARD_40percentclub_nori) && defined(BLUEFRUIT)
+//need to undefine standard nori array before defining alternate Bluefruit array
+#undef MATRIX_ROW_PINS
+#undef MATRIX_COL_PINS
+//!!! using pin B1 causes keyboard to enter keypresses even if nothing is activated !!!
+//!!! using pin B2 seems not to work
+#define MATRIX_ROW_PINS { F5, F4, F1, F0 }
+#define MATRIX_COL_PINS { F7, F6, B6, B5, D7, C6, D0, D1, B7, B3, D2, D3 }
+
+//get rid of description - too long to show properly in Windows
+#undef DESCRIPTION
+#define DESCRIPTION
+
+//and not necessary (since rules.mk should tell it not to look) but just in case:
+#undef BACKLIGHT_PIN
+#undef RGB_DI_PIN
 #endif
 
 // set top left key as bootloader mode escape key on 4x4 48key layout
@@ -36,7 +54,7 @@
 
 // use alternate settings for 4x4 board using ProMicro instead of Micro
 // usage: make 4x4:wanleg PM=yes
-#if defined(KEYBOARD_40percentclub_4x4) && defined(PRO_MICRO) 
+#if defined(KEYBOARD_40percentclub_4x4) && defined(PRO_MICRO)
 #define QMK_ESC_OUTPUT F4 // usually COL
 #define QMK_ESC_INPUT D1 // usually ROW
 #define QMK_LED B0

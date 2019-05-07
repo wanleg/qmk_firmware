@@ -27,6 +27,7 @@ ifeq ($(strip $(BT)), yes)
   CONSOLE_ENABLE = no 		# Console for debug(+400)
   COMMAND_ENABLE = no 		# Commands for debug and configuration
   RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
+	BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality on B7 by default
 endif
 
 #move numpad to Left/Centre/Right(default) on 5x15 boards

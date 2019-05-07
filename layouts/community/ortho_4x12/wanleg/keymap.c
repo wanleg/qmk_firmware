@@ -30,11 +30,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [PAD] = LAYOUT_ortho_4x4_wrapper(
-  _______________NUMPAD_Row__0_______________, 
-  _______________NUMPAD_Row__1_______________, 
-  _______________NUMPAD_Row__2_______________, 
+  _______________NUMPAD_Row__0_______________,
+  _______________NUMPAD_Row__1_______________,
+  _______________NUMPAD_Row__2_______________,
   _______________NUMPAD_Row__3_______________
 ),
+#if defined(BLUEFRUIT)
+[_FN] = LAYOUT_ortho_4x4_wrapper(
+  RESET,   _______, OUT_BT,  OUT_USB,
+  _______, _______, _______, _______,
+  _______, _______, _______, _______,
+  _______, _______, GHERKIN, _______
+),
+#endif
 
 #else
 [_GK] = LAYOUT_ortho_4x12_wrapper(
@@ -43,6 +51,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______________GherkinLike_2_______________,
   _______________GherkinLike_3_______________
 ),
+//this section needs fixing with ProMicro
+//doesn't seems to work properly
+[_FN] = LAYOUT_ortho_4x12_wrapper(
+  RESET,   _______________Gherkin_FN_0________________, _______,
+  _______, _______________Gherkin_FN_0________________, _______,
+  _______, _______________Gherkin_FN_0________________, _______,
+  _______, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+//end of section
 #endif
 [_QW] = LAYOUT_ortho_4x12_wrapper(
   _______________Qwerty_Row__0_______________,

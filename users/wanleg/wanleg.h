@@ -306,7 +306,8 @@ enum {
 #define _______________NUMPAD_Row__0_______________  KC_KP_7, KC_KP_8, KC_KP_9,   KC_BSPC
 #define _______________NUMPAD_Row__1_______________  KC_KP_4, KC_KP_5, KC_KP_6,   KC_SPC
 #define _______________NUMPAD_Row__2_______________  KC_KP_1, KC_KP_2, KC_KP_3,   KC_PENT
-#define _______________NUMPAD_Row__3_______________  KC_KP_0, TD(LYR_TAP_DANCE), KC_KP_DOT, KC_PMNS
+//#define _______________NUMPAD_Row__3_______________  KC_KP_0, TD(LYR_TAP_DANCE), KC_KP_DOT, KC_PMNS
+#define _______________NUMPAD_Row__3_______________  KC_KP_0, LT(_FN, KC_PSLS), KC_KP_DOT, KC_PMNS
 
 /* Gherkin FN/Lighting
  * .-----------------------------------------------------------------------------------------------------.
