@@ -16,6 +16,6 @@ endif
 
 ifeq ($(strip $(KEYBOARD)), 40percentclub/nori)
 	NKRO_ENABLE = no
-	BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality on B7 by default
+	BACKLIGHT_ENABLE = yes      # Enable keyboard backlight functionality on B7 by default
 	RGBLIGHT_ENABLE = no       # Enable keyboard RGB underglow
 endif
