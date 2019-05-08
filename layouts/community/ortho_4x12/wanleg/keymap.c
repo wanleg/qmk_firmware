@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______________GherkinLike_0_______________,
   _______________GherkinLike_1_______________,
   _______________GherkinLike_2_______________,
-  TD(RST_TAP_DANCE), KC_LGUI, KC_LALT, NUMPAD, NUMBER, ETCETERA, KC_SPC, DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
+  KC_LCTL, KC_LGUI, KC_LALT, NUMPAD, NUMBER, ETCETERA, LT(_FN,KC_SPC), DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
 ),
 
 [PAD] = LAYOUT_ortho_4x4_wrapper(
@@ -35,15 +35,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______________NUMPAD_Row__2_______________,
   _______________NUMPAD_Row__3_______________
 ),
-#if defined(BLUEFRUIT)
-[_FN] = LAYOUT_ortho_4x4_wrapper(
-  RESET,   _______, OUT_BT,  OUT_USB,
-  _______, _______, _______, _______,
-  _______, _______, _______, _______,
-  _______, _______, GHERKIN, _______
-),
-#endif
-
 #else
 [_GK] = LAYOUT_ortho_4x12_wrapper(
   _______________GherkinLike_0_______________,
@@ -94,10 +85,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ______________ETCETERA_Row__3______________
 ),
 
+#if defined(BLUEFRUIT)
 [_FN] = LAYOUT_ortho_4x12_wrapper(
   RESET,   _______________Gherkin_FN_0________________, _______,
-  _______, _______________Gherkin_FN_0________________, _______,
-  _______, _______________Gherkin_FN_0________________, _______,
-  KC_NLCK, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  OUT_USB, _______________Gherkin_FN_1________________, _______,
+  OUT_BT,  _______________Gherkin_FN_2________________, _______,
+  KC_NLCK, _______, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______
 ),
+#else
+[_FN] = LAYOUT_ortho_4x12_wrapper(
+  RESET,   _______________Gherkin_FN_0________________, _______,
+  _______, _______________Gherkin_FN_1________________, _______,
+  _______, _______________Gherkin_FN_2________________, _______,
+  KC_NLCK, _______, _______, GHERKIN, _______, _______, _______, _______, _______, _______, _______, _______
+),
+#endif
 };

@@ -183,14 +183,14 @@ enum {
  * |SFT/CAPS| Z      | X      | C      | V/NUM  | B/ETC  | N/Fn   | M/DIR  | ,/GUI  | ./ALT  | BSPC   | ENT/SFT|
  * |        |SFThold |        |        |        |        |        |        |        |        |CTRLhold|        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | LCTRL  | LGUI   | ALT    | ONEHAND|  NUM   | ETC    | SPACE  |  DIR   | RGUI   | ALT    | DEL    | CTRL   |
+ * | LCTRL  | LGUI   | ALT    | ONEHAND|  NUM   | ETC    |SPACE/Fn|  DIR   | RGUI   | ALT    | DEL    | CTRL   |
  * '-----------------------------------------------------------------------------------------------------------'
  */
 #define _______________GherkinLike_0_______________     KC_ESC, _______________Gherkin_Row_0_______________, KC_BSPC
 #define _______________GherkinLike_1_______________     KC_TAB, _______________Gherkin_Row_1_______________, KC_QUOT
 #define _______________GherkinLike_2_______________     TD(TD_SFT_CAPS), SFT_T(KC_Z), KC_X, KC_C, LT(NUM, KC_V),LT(ETC, KC_B),LT(_FN,KC_N), LT(DIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC), SFT_T(KC_ENT)
-#define _______________GherkinLike_3_______________     KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, NUMBER, ETCETERA, KC_SPC,DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
-#define _______________GherkinLike_3_OneHand_______     KC_LCTL, KC_LGUI, KC_LALT, ONEHAND, NUMBER, ETCETERA, KC_SPC,DIRECTION, KC_RGUI, KC_RALT, ONEHAND, KC_RCTL
+#define _______________GherkinLike_3_______________     KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, NUMBER, ETCETERA, LT(_FN,KC_SPC),DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
+#define _______________GherkinLike_3_OneHand_______     KC_LCTL, KC_LGUI, KC_LALT, ONEHAND, NUMBER, ETCETERA, LT(_FN,KC_SPC),DIRECTION, KC_RGUI, KC_RALT, ONEHAND, KC_RCTL
 
 /* Qwerty
  * .-------------------------------------------------------------------------------------.
@@ -206,7 +206,7 @@ enum {
 #define _______________Qwerty_Row__0_______________   KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC
 #define _______________Qwerty_Row__1_______________   KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT
 #define _______________Qwerty_Row__2_______________   TD(TD_SFT_CAPS),  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_T(KC_ENT)
-#define _______________Qwerty_Row__3_______________   KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SUBTER,  KC_LSFT, KC_SPC,  SUPRA,   KC_RGUI, KC_RALT, KC_DEL,  KC_RCTL
+#define _______________Qwerty_Row__3_______________   KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SUBTER,  KC_LSFT, LT(_FN,KC_SPC),  SUPRA,   KC_RGUI, KC_RALT, KC_DEL,  KC_RCTL
 
 /* SUPRA
  * .-----------------------------------------------------------------------------------------------------------.
