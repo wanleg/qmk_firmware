@@ -35,10 +35,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { B12, A10, A11, A12, A15 }
 #define DIODE_DIRECTION COL2ROW
 
-#define BACKLIGHT_LEVELS 6
-#define BACKLIGHT_BREATHING
-#define BREATHING_PERIOD 6
-
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
@@ -50,13 +46,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGBLIGHT_ANIMATIONS
-
-#define WS2812_LED_N 9
-#define RGBLED_NUM WS2812_LED_N
-#define PORT_WS2812     GPIOB
-#define PIN_WS2812      15
-#define WS2812_SPI SPID2
+//#define RGBLIGHT_ANIMATIONS
+//#define WS2812_LED_N 9
+//#define RGBLED_NUM WS2812_LED_N
+//#define PORT_WS2812     GPIOB
+//#define PIN_WS2812      15
+//#define WS2812_SPI SPID2
+//#define BACKLIGHT_LEVELS 6
+//#define BACKLIGHT_BREATHING
+//#define BREATHING_PERIOD 6
 
 
 

@@ -1,7 +1,6 @@
 # project specific files
 VPATH += keyboards/5x5bp
-SRC =	led.c \
-      keyboard.c
+SRC =	keyboard.c
 
 # GENERIC STM32F103C8T6 board - stm32duino bootloader
 OPT_DEFS = -DCORTEX_VTOR_INIT=0x2000
@@ -47,9 +46,9 @@ MOUSEKEY_ENABLE = yes	# Mouse keys
 EXTRAKEY_ENABLE = yes	# Audio control and System control
 CONSOLE_ENABLE = yes	# Console for debug
 COMMAND_ENABLE = yes    # Commands for debug and configuration
-SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes	    # USB Nkey Rollover
-BACKLIGHT_ENABLE = yes
-RGBLIGHT_ENABLE = yes
+BACKLIGHT_ENABLE = no
+RGBLIGHT_ENABLE = no
 
 LAYOUTS = ortho_5x5  ortho_5x10  ortho_5x15

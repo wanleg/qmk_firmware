@@ -1,6 +1,7 @@
 #pragma once
 
 #include "quantum.h"
+#define ___ KC_NO
 
 #define LAYOUT_ortho_5x5( \
     K00, K01, K02, K03, K04, \
