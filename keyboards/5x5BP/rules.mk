@@ -1,5 +1,5 @@
 # project specific files
-VPATH += keyboards/cannonkeys/bluepill
+VPATH += keyboards/5x5bp
 SRC =	led.c \
       keyboard.c
 
@@ -52,4 +52,4 @@ NKRO_ENABLE = yes	    # USB Nkey Rollover
 BACKLIGHT_ENABLE = yes
 RGBLIGHT_ENABLE = yes
 
-LAYOUTS = ortho_4x12
+LAYOUTS = ortho_5x5  ortho_5x10  ortho_5x15

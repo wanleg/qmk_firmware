@@ -20,19 +20,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xCA04
 #define PRODUCT_ID      0x0248
-#define DEVICE_VER      0x0001
+#define DEVICE_VER      0x0002
 /* in python2: list(u"whatever".encode('utf-16-le')) */
 /*   at most 32 characters or the ugly hack in usb_main.c borks */
 #define MANUFACTURER QMK
-#define PRODUCT Ortho48
-#define DESCRIPTION Ortho48
+#define PRODUCT 5x5 ARM Keyboard
+#define DESCRIPTION 25 or 50 or 75 key keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 4
-#define MATRIX_COLS 12
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 15
 
-#define MATRIX_COL_PINS { B11, B10, B1, B0, A7, A6, A5, B14, A15, A0, C15, C14}
-#define MATRIX_ROW_PINS { B12, C13, A2, A1 }
+#define MATRIX_COL_PINS { B3, B4, B5, B6, B7, B9, B8, C13, A4, A0, A1, A2, A3, B10, B11 }
+#define MATRIX_ROW_PINS { B12, A10, A11, A12, A15 }
 #define DIODE_DIRECTION COL2ROW
 
 #define BACKLIGHT_LEVELS 6
