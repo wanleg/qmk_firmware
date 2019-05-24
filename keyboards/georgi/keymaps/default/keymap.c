@@ -23,7 +23,6 @@
 // QMK Layers
 #define STENO_LAYER   0
 #define GAMING        1
-#define GAMING_2      2
 
 /* Keyboard Layout
  * ,---------------------------------.    ,------------------------------.
