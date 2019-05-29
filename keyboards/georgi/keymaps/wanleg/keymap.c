@@ -162,6 +162,13 @@ uint32_t processQwerty(bool lookup) {
     // Mouse Keys
     P( LO  | LSD | LK,    CLICK_MOUSE(KC_MS_BTN2));
     P( LO  | LR  | LW,    CLICK_MOUSE(KC_MS_BTN1));
+	
+	
+	// Mods
+	P( RD | RZ,     SEND(KC_RSFT));
+	P( RZ,     		SEND(KC_RCTL));
+	P( LNO,     	SEND(KC_LSFT));
+	P( LNO | LA,    SEND(KC_LCTL));
 
     return 0;
 }
