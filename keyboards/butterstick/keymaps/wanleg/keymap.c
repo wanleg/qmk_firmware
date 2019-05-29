@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // I don't game don't roast me thanks
   [GAME] = LAYOUT_butter(
-  	KC_Q,  KC_W,  KC_E,  KC_R,  KC_T, KC_Y, KC_U, KC_I,  KC_O, KC_ENT,
-  	KC_A,  KC_S,  KC_D,  KC_F,  KC_G, KC_H, KC_J, KC_K,  KC_L, TO(BASE)
+  	_______,	KC_MS_U,  _______, KC_ESC,   RESET,   KC_WH_L, 	KC_WH_D, KC_WH_U, KC_WH_R, KC_CAPS,
+  	KC_MS_L,KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, _______, TO(BASE)
   )
 };
 
@@ -68,40 +68,116 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
 // http://docs.gboards.ca
 uint32_t processQwerty(bool lookup) {
-    // Dual chords
-    P( LP  | LH,    			CLICK_MOUSE(KC_MS_BTN2));
-    P( ST1 | RF,    			CLICK_MOUSE(KC_MS_BTN1));
-    P( LSU | LFT,               SEND(KC_ESC));
-	P( LSD | LK,				SEND(KC_LSFT));
-	P( RZ  | RS,				SEND(KC_RSFT));
-    P( RG  | RS,    			SEND(KC_LGUI));
-    P( RB  | RS,    			SEND(KC_LALT));
-	P( LSU | LSD | LFT | LK,	SEND(KC_LCTL));
-	P( RS  | RT  | RD  | RZ,	SEND(KC_RCTL));
+	// Minuscule Letters
+    P( LSU,          SEND(KC_Q));
+    P( LFT,          SEND(KC_W));
+    P( LP,           SEND(KC_E));
+    P( LH,           SEND(KC_R));
+    P( ST1,          SEND(KC_T));
+    P( RF,           SEND(KC_Y));
+    P( RP,           SEND(KC_U));
+    P( RL,           SEND(KC_I));
+    P( RT,           SEND(KC_O));
+    P( RD,           SEND(KC_P));
+    P( LSU | LSD,    SEND(KC_A));
+    P( LFT | LK,     SEND(KC_S));
+    P( LP  | LW,     SEND(KC_D));
+    P( LH  | LR,     SEND(KC_F));
+    P( ST1 | ST2,    SEND(KC_G));
+    P( RF  | RR,     SEND(KC_H));
+    P( RP  | RB,     SEND(KC_J));
+    P( RG  | RL,     SEND(KC_K));
+    P( RT  | RS,     SEND(KC_L));
+    P( RD  | RZ,     SEND(KC_SPC));
+    P( LSD,          SEND(KC_Z));
+    P( LK,           SEND(KC_X));
+    P( LW,           SEND(KC_C));
+    P( LR,           SEND(KC_V));
+    P( ST2,          SEND(KC_B));
+    P( RR,           SEND(KC_N));
+    P( RB,           SEND(KC_M));
+    P( RG,           SEND(KC_COMM));
+    P( RS,           SEND(KC_DOT));
+    P( RZ,           SEND(KC_BSPC));
+	
+	// Majuscule Letters
+	//right shift
+    P( LSU | RD  | RZ,          SEND(KC_LSFT); SEND(KC_Q));
+    P( LFT | RD  | RZ,          SEND(KC_LSFT); SEND(KC_W));
+    P( LP | RD  | RZ,           SEND(KC_LSFT); SEND(KC_E));
+    P( LH | RD  | RZ,           SEND(KC_LSFT); SEND(KC_R));
+    P( ST1 | RD  | RZ,          SEND(KC_LSFT); SEND(KC_T));
+    P( RF | RD  | RZ,           SEND(KC_LSFT); SEND(KC_Y));
+    P( RP | RD  | RZ,           SEND(KC_LSFT); SEND(KC_U));
+    P( RL | RD  | RZ,           SEND(KC_LSFT); SEND(KC_I));
+    P( RT | RD  | RZ,           SEND(KC_LSFT); SEND(KC_O));
+    P( LSU | LSD | RD  | RZ,    SEND(KC_LSFT); SEND(KC_A));
+    P( LFT | LK | RD  | RZ,     SEND(KC_LSFT); SEND(KC_S));
+    P( LP  | LW | RD  | RZ,     SEND(KC_LSFT); SEND(KC_D));
+    P( LH  | LR | RD  | RZ,     SEND(KC_LSFT); SEND(KC_F));
+    P( ST1 | ST2 | RD  | RZ,    SEND(KC_LSFT); SEND(KC_G));
+    P( RF  | RR | RD  | RZ,     SEND(KC_LSFT); SEND(KC_H));
+    P( RP  | RB | RD  | RZ,     SEND(KC_LSFT); SEND(KC_J));
+    P( RG  | RL | RD  | RZ,     SEND(KC_LSFT); SEND(KC_K));
+    P( RT  | RS | RD  | RZ,     SEND(KC_LSFT); SEND(KC_L));
+    P( LSD | RD  | RZ,          SEND(KC_LSFT); SEND(KC_Z));
+    P( LK | RD  | RZ,           SEND(KC_LSFT); SEND(KC_X));
+    P( LW | RD  | RZ,           SEND(KC_LSFT); SEND(KC_C));
+    P( LR | RD  | RZ,           SEND(KC_LSFT); SEND(KC_V));
+    P( ST2 | RD  | RZ,          SEND(KC_LSFT); SEND(KC_B));
+    P( RR | RD  | RZ,           SEND(KC_LSFT); SEND(KC_N));
+    P( RB | RD  | RZ,           SEND(KC_LSFT); SEND(KC_M));
+    P( RG | RD  | RZ,           SEND(KC_LSFT); SEND(KC_COMM));
+    P( RS | RD  | RZ,           SEND(KC_LSFT); SEND(KC_DOT));
+	//left shift
+    P( LFT | LSD,          SEND(KC_LSFT); SEND(KC_W));
+    P( LP | LSD,           SEND(KC_LSFT); SEND(KC_E));
+    P( LH | LSD,           SEND(KC_LSFT); SEND(KC_R));
+    P( ST1 | LSD,          SEND(KC_LSFT); SEND(KC_T));
+    P( RF | LSD,           SEND(KC_LSFT); SEND(KC_Y));
+    P( RP | LSD,           SEND(KC_LSFT); SEND(KC_U));
+    P( RL | LSD,           SEND(KC_LSFT); SEND(KC_I));
+    P( RT | LSD,           SEND(KC_LSFT); SEND(KC_O));
+    P( LSD | RD ,          SEND(KC_LSFT); SEND(KC_P));
+    P( LFT | LK | LSD,     SEND(KC_LSFT); SEND(KC_S));
+    P( LP  | LW | LSD,     SEND(KC_LSFT); SEND(KC_D));
+    P( LH  | LR | LSD,     SEND(KC_LSFT); SEND(KC_F));
+    P( ST1 | ST2 | LSD,    SEND(KC_LSFT); SEND(KC_G));
+    P( RF  | RR | LSD,     SEND(KC_LSFT); SEND(KC_H));
+    P( RP  | RB | LSD,     SEND(KC_LSFT); SEND(KC_J));
+    P( RG  | RL | LSD,     SEND(KC_LSFT); SEND(KC_K));
+    P( RT  | RS | LSD,     SEND(KC_LSFT); SEND(KC_L));
+    P( LK | LSD,           SEND(KC_LSFT); SEND(KC_X));
+    P( LW | LSD,           SEND(KC_LSFT); SEND(KC_C));
+    P( LR | LSD,           SEND(KC_LSFT); SEND(KC_V));
+    P( ST2 | LSD,          SEND(KC_LSFT); SEND(KC_B));
+    P( RR | LSD,           SEND(KC_LSFT); SEND(KC_N));
+    P( RB | LSD,           SEND(KC_LSFT); SEND(KC_M));
+    P( RG | LSD,           SEND(KC_LSFT); SEND(KC_COMM));
+    P( RS | LSD,           SEND(KC_LSFT); SEND(KC_DOT));
+
 
     // Movement Layer
     P( DIR1 | LSU,    SEND(KC_TAB));
 	P( DIR1 | LSU | RS,    SEND(KC_LALT); SEND(KC_TAB)); //alt-tab (only once, cannot chain multiple tab taps)
     P( DIR1 | LFT,    SEND(KC_UP));
     P( DIR1 | LH,     SEND(KC_INS));
-    P( DIR1 | ST1,    SEND(KC_LCTL));
-    P( DIR1 | RF,     SEND(KC_RSFT));
-    P( DIR2 | RP,     SEND(KC_PGUP));
     P( DIR1 | RL,     SEND(KC_HOME));
     P( DIR1 | RT,     SEND(KC_MINS));
+	P( DIR1 | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_MINS)); // _
     P( DIR1 | RD,     SEND(KC_EQL));
-    P( DIR1 | LSD,    SEND(KC_LEFT));
-    P( DIR1 | LK,     SEND(KC_DOWN));
-    P( DIR1 | LW,     SEND(KC_RIGHT));
-    P( DIR1 | LR,     SEND(KC_PSCR));
-    P( DIR1 | ST2,    SEND(KC_LSFT));
-    P( DIR1 | RR,     SEND(KC_RCTL));
-    P( DIR2 | RL,     SEND(KC_PGDN));
+	P( DIR1 | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_EQL));  // +
+    P( DIR1 | LSD | LSU,   SEND(KC_LEFT));
+    P( DIR1 | LK | LFT,    SEND(KC_DOWN));
+    P( DIR1 | LP | LW,     SEND(KC_RIGHT));
+    P( DIR1 | LR | LH,     SEND(KC_PSCR));
     P( DIR1 | RG,     SEND(KC_END));
     P( DIR1 | RS | RT,     SEND(KC_LBRC));
+	P( DIR1 | RS | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_LBRC)); // {
     P( DIR1 | RZ | RD,     SEND(KC_RBRC));
+	P( DIR1 | RZ | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_RBRC)); // }
 	P( DIR1 | RZ,     SEND(KC_SLSH));			// /
-	P( DIR1 | ST2 | RZ,     SEND(KC_LSFT); SEND(KC_SLSH)); // ?
+	P( DIR1 | RZ | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_SLSH)); //?
 	
 
     // Number Row
@@ -137,7 +213,7 @@ uint32_t processQwerty(bool lookup) {
     P( SYMB | LSU,    SEND(KC_LSFT); SEND(KC_1));       // !
     P( SYMB | LFT,    SEND(KC_LSFT); SEND(KC_2));       // @
     P( SYMB | LP,     SEND(KC_LSFT); SEND(KC_3));       // #
-    P( SYMB | LH,     SEND(KC_LSFT); SEND(KC_4));       // $
+    P( SYMB | LH | LW,     SEND(KC_LSFT); SEND(KC_4));       // $
     P( SYMB | ST1,    SEND(KC_LSFT); SEND(KC_5));       // %
     P( SYMB | RF,     SEND(KC_LSFT); SEND(KC_6));       // ^
     P( SYMB | RP,     SEND(KC_LSFT); SEND(KC_7));       // &
@@ -154,38 +230,20 @@ uint32_t processQwerty(bool lookup) {
 	P( ST2  | RZ,     SEND(KC_QUOT));					// '
 	P( ST2  | ST1 | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
 	P( ST2  | LSD | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
-
-    // Letters
-    P( LSU | LSD,    SEND(KC_A));
-    P( LFT | LK,     SEND(KC_S));
-    P( LP  | LW,     SEND(KC_D));
-    P( LH  | LR,     SEND(KC_F));
-    P( ST1 | ST2,    SEND(KC_G));
-    P( RF  | RR,     SEND(KC_H));
-    P( RT  | RS,     SEND(KC_L));
-    P( RD  | RZ,     SEND(KC_SPC));
-    P( RG  | RL,     SEND(KC_K));
-    P( RP  | RB,     SEND(KC_J));
-    P( LSU,          SEND(KC_Q));
-    P( LSD,          SEND(KC_Z));
-    P( LFT,          SEND(KC_W));
-    P( LK,           SEND(KC_X));
-    P( LP,           SEND(KC_E));
-    P( LW,           SEND(KC_C));
-    P( LH,           SEND(KC_R));
-    P( LR,           SEND(KC_V));
-    P( ST1,          SEND(KC_T));
-    P( ST2,          SEND(KC_B));
-    P( RF,           SEND(KC_Y));
-    P( RR,           SEND(KC_N));
-    P( RP,           SEND(KC_U));
-    P( RB,           SEND(KC_M));
-    P( RL,           SEND(KC_I));
-    P( RG,           SEND(KC_COMM));
-    P( RT,           SEND(KC_O));
-    P( RS,           SEND(KC_DOT));
-    P( RD,           SEND(KC_P));
-    P( RZ,           SEND(KC_BSPC));
+	
+	// Mods & Specials
+	P( ST2 | RR,    SEND(KC_LCTL); SEND(KC_LALT); SEND(KC_DEL)); // ctrl + alt + del
+	P( ST2 | LH,    SEND(KC_ESC)); // esc
+	P( RB | RS,    SEND(KC_LALT)); // alt
+	P( RZ | LFT | LK,    SEND(KC_LCTL); SEND(KC_S));  // ctrl + s
+	P( RZ | LSU | LSD,    SEND(KC_LCTL); SEND(KC_A));  // ctrl + a
+	P( RZ | LR,    SEND(KC_LCTL); SEND(KC_V));  // ctrl + v
+	P( RZ | LW,    SEND(KC_LCTL); SEND(KC_C));  // ctrl + c
+	P( RZ | LSD,    SEND(KC_LCTL); SEND(KC_Z));  // ctrl + z
+	P( RZ | RS | RD,    SEND(KC_LCTL); SEND(KC_P));  // ctrl + p
+	P( RB | ST1 | ST2 | RL,    SEND(KC_LSFT)); SEND(KC_HOME);  // home + shift
+	P( RB | ST1 | ST2 | RG,    SEND(KC_LSFT)); SEND(KC_END);  // home + shift
+	
 
     return 0;
 }
