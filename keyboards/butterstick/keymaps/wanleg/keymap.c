@@ -214,7 +214,7 @@ uint32_t processQwerty(bool lookup) {
     P( SYMB | LFT,    SEND(KC_LSFT); SEND(KC_2));       // @
     P( SYMB | LP,     SEND(KC_LSFT); SEND(KC_3));       // #
     P( SYMB | LH | LW,     SEND(KC_LSFT); SEND(KC_4));       // $
-    P( SYMB | ST1,    SEND(KC_LSFT); SEND(KC_5));       // %
+    P( SYMB | ST1,    SEND(KC_LSFT); SEND(KC_5));       // 
     P( SYMB | RF,     SEND(KC_LSFT); SEND(KC_6));       // ^
     P( SYMB | RP,     SEND(KC_LSFT); SEND(KC_7));       // &
     P( SYMB | RL,     SEND(KC_PAST));  					// * 
@@ -240,9 +240,12 @@ uint32_t processQwerty(bool lookup) {
 	P( RZ | LR,    SEND(KC_LCTL); SEND(KC_V));  // ctrl + v
 	P( RZ | LW,    SEND(KC_LCTL); SEND(KC_C));  // ctrl + c
 	P( RZ | LSD,    SEND(KC_LCTL); SEND(KC_Z));  // ctrl + z
+	P( RZ | LFT,    SEND(KC_LCTL); SEND(KC_W));  // ctrl + w
+	P( RZ | ST1,    SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
 	P( RZ | RS | RD,    SEND(KC_LCTL); SEND(KC_P));  // ctrl + p
-	P( RB | ST1 | ST2 | RL,    SEND(KC_LSFT)); SEND(KC_HOME);  // home + shift
-	P( RB | ST1 | ST2 | RG,    SEND(KC_LSFT)); SEND(KC_END);  // home + shift
+	P( RZ | RR,    SEND(KC_LCTL); SEND(KC_N));  // ctrl + n
+	P( RG | LP,    SEND(KC_LGUI); SEND(KC_E));  // win + e
+	P( RZ | ST1 | RS,    SEND(KC_LSFT); SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
 	
 
     return 0;
