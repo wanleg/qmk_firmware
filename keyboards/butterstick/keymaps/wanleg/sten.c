@@ -1,3 +1,5 @@
+//change "Enter Command Mode" chord (line 57)
+
 #include "sten.h"
 
 // Chord state
