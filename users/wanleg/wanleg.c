@@ -170,7 +170,9 @@ void matrix_init_user(void) {
 void keyboard_post_init_user(void) {
   #if defined(KEYBOARD_kbdfans_kbd6x)
     set_single_persistent_default_layer(_QW);
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_SNAKE + 5);
-    rgblight_sethsv_noeeprom(0,0,128);
+    //rgblight_mode_noeeprom(RGBLIGHT_MODE_SNAKE + 5);
+    //rgblight_sethsv_noeeprom(0,0,128);
+	rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
+	rgblight_sethsv_noeeprom(0,0,255);    
   #endif
 }
