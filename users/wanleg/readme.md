@@ -1,6 +1,6 @@
 # Contents  
   * [Git Basics](#git-basics)  
-       * [Update a Feature Branch](#update-a-development-branch)  
+       * [Update a Development Branch](#update-a-development-branch)  
        * [Delete Branch Locally and Remotely](#delete-branch-locally-and-remotely)
        * [Merge TEST branch into DEV branch](#merge-test-branch-into-dev-branch)
   * [STM32F103C8T6 Setup](#STM32F103C8T6-setup)
