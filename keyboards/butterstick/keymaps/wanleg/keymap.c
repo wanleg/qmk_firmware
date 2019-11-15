@@ -235,6 +235,7 @@ uint32_t processQwerty(bool lookup) {
 	P( ST2 | LH,    SEND(KC_ESC)); // esc
 	P( RB | RS,    SEND(KC_LALT)); // alt
 	P( LK | ST2,    SEND(KC_CAPS)); // caps lock
+	P( RZ | LH | LR,    SEND(KC_LCTL); SEND(KC_F));  // ctrl + f
 	P( RZ | LFT | LK,    SEND(KC_LCTL); SEND(KC_S));  // ctrl + s
 	P( RZ | LSU | LSD,    SEND(KC_LCTL); SEND(KC_A));  // ctrl + a
 	P( RZ | LR,    SEND(KC_LCTL); SEND(KC_V));  // ctrl + v
