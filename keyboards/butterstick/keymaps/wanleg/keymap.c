@@ -4,11 +4,11 @@
 /* 	 	
  *  Key names are inherited from steno machines
  *  .-----------------------------------------------------.
- *	| LSU | LFT | LP | LH | ST1 | RF | RP | RL | RT | RD  |
+ *  | LSU | LFT | LP | LH | ST1 | RF | RP | RL | RT | RD  |
  *  |-----------------------------------------------------|
- *	| LSD | LK  | LW | LR | ST2 | RR | RB | RG | RS | RZ  |
+ *  | LSD | LK  | LW | LR | ST2 | RR | RB | RG | RS | RZ  |
  *  '-----------------------------------------------------'
-       A    S     D    F     G    H    J    K    L    ;
+       A     S     D    F     G    H    J    K    L    ;
  */
 
 // Function prefixes
@@ -16,7 +16,7 @@
 #define DIR2	(RB | RG)	
 #define SYMB	(LR | RB)	
 #define NUM1    (LR)
-#define NUM2    (LW  | LR)	
+#define NUM2    (LW | LR)	
 
 /*
 START TEMPLATE
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // I don't game don't roast me thanks
   [GAME] = LAYOUT_butter(
   	_______,	KC_MS_U,  _______, KC_ESC,   RESET,   KC_WH_L, 	KC_WH_D, KC_WH_U, KC_WH_R, KC_CAPS,
-  	KC_MS_L,KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, _______, TO(BASE)
+  	KC_MS_L,	KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, _______, TO(BASE)
   )
 };
 
@@ -158,25 +158,25 @@ uint32_t processQwerty(bool lookup) {
 
     // Movement Layer
     P( DIR1 | LSU,    SEND(KC_TAB));
-	P( DIR1 | LSU | RS,    SEND(KC_LALT); SEND(KC_TAB)); //alt-tab (only once, cannot chain multiple tab taps)
+    P( DIR1 | LSU | RS,    SEND(KC_LALT); SEND(KC_TAB)); //alt-tab (only once, cannot chain multiple tab taps)
     P( DIR1 | LFT,    SEND(KC_UP));
     P( DIR1 | LH,     SEND(KC_INS));
     P( DIR1 | RL,     SEND(KC_HOME));
     P( DIR1 | RT,     SEND(KC_MINS));
-	P( DIR1 | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_MINS)); // _
+    P( DIR1 | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_MINS)); // _
     P( DIR1 | RD,     SEND(KC_EQL));
-	P( DIR1 | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_EQL));  // +
+    P( DIR1 | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_EQL));  // +
     P( DIR1 | LSD | LSU,   SEND(KC_LEFT));
     P( DIR1 | LK | LFT,    SEND(KC_DOWN));
     P( DIR1 | LP | LW,     SEND(KC_RIGHT));
     P( DIR1 | LR | LH,     SEND(KC_PSCR));
     P( DIR1 | RG,     SEND(KC_END));
     P( DIR1 | RS | RT,     SEND(KC_LBRC));
-	P( DIR1 | RS | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_LBRC)); // {
+    P( DIR1 | RS | RT | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_LBRC)); // {
     P( DIR1 | RZ | RD,     SEND(KC_RBRC));
-	P( DIR1 | RZ | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_RBRC)); // }
-	P( DIR1 | RZ,     SEND(KC_SLSH));			// /
-	P( DIR1 | RZ | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_SLSH)); //?
+    P( DIR1 | RZ | RD | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_RBRC)); // }
+    P( DIR1 | RZ,     SEND(KC_SLSH));			// /
+    P( DIR1 | RZ | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_SLSH)); //?
 	
 
     // Number Row
@@ -190,22 +190,22 @@ uint32_t processQwerty(bool lookup) {
     P( NUM1 | RL,     SEND(KC_8));
     P( NUM1 | RT,     SEND(KC_9));
     P( NUM1 | RD,     SEND(KC_0));
-	P( NUM1 | RR,     SEND(KC_ENT));
+    P( NUM1 | RR,     SEND(KC_ENT));
 
     // Number Row, Function keys
     P( NUM2 | LSU,    SEND(KC_F1));
     P( NUM2 | LFT,    SEND(KC_F2));
     P( NUM2 | LP,     SEND(KC_F3));
     P( NUM2 | LH,     SEND(KC_F4));
-	P( LR | ST2 | LH | RS,     SEND(KC_LALT); SEND(KC_F4)); //alt-F4
+    P( LR | ST2 | LH | RS,     SEND(KC_LALT); SEND(KC_F4)); //alt-F4
     P( NUM2 | ST1,    SEND(KC_F5));
     P( NUM2 | RF,     SEND(KC_F6));
     P( NUM2 | RP,     SEND(KC_F7));
     P( NUM2 | RL,     SEND(KC_F8));
     P( NUM2 | RT,     SEND(KC_F9));
     P( NUM2 | RD,     SEND(KC_F10));
-	P( NUM2 | LSD,    SEND(KC_F11));
-	P( NUM2 | LK,     SEND(KC_F12));
+    P( NUM2 | LSD,    SEND(KC_F11));
+    P( NUM2 | LK,     SEND(KC_F12));
 
 
     // Symbols	
@@ -220,33 +220,33 @@ uint32_t processQwerty(bool lookup) {
     P( SYMB | RT,     SEND(KC_LSFT); SEND(KC_9));       // (
     P( SYMB | RD,     SEND(KC_LSFT); SEND(KC_0));       // )
     P( ST2  | LSU,    SEND(KC_GRV));					// `
-	P( ST2  | LSU | RF,   SEND(KC_LSFT); SEND(KC_GRV)); // ~
-	P( ST2  | RD,     SEND(KC_BSLS));					// backslash 
-	P( ST2  | ST1 | RD,   SEND(KC_LSFT); SEND(KC_BSLS));// |
-	P( ST2  | RS,     SEND(KC_SCLN));					// ;
-	P( ST2  | ST1 | RS,   SEND(KC_LSFT); SEND(KC_SCLN));// :
-	P( ST2  | LSD | RS,   SEND(KC_LSFT); SEND(KC_SCLN));// :
-	P( ST2  | RZ,     SEND(KC_QUOT));					// '
-	P( ST2  | ST1 | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
-	P( ST2  | LSD | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
-	
-	// Mods & Specials
-	P( ST2 | RR,    SEND(KC_LCTL); SEND(KC_LALT); SEND(KC_DEL)); // ctrl + alt + del
-	P( ST2 | LH,    SEND(KC_ESC)); // esc
-	P( RB | RS,    SEND(KC_LALT)); // alt
-	P( LK | ST2,    SEND(KC_CAPS)); // caps lock
-	P( RZ | LH | LR,    SEND(KC_LCTL); SEND(KC_F));  // ctrl + f
-	P( RZ | LFT | LK,    SEND(KC_LCTL); SEND(KC_S));  // ctrl + s
-	P( RZ | LSU | LSD,    SEND(KC_LCTL); SEND(KC_A));  // ctrl + a
-	P( RZ | LR,    SEND(KC_LCTL); SEND(KC_V));  // ctrl + v
-	P( RZ | LW,    SEND(KC_LCTL); SEND(KC_C));  // ctrl + c
-	P( RZ | LSD,    SEND(KC_LCTL); SEND(KC_Z));  // ctrl + z
-	P( RZ | LFT,    SEND(KC_LCTL); SEND(KC_W));  // ctrl + w
-	P( RZ | ST1,    SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
-	P( RZ | RS | RD,    SEND(KC_LCTL); SEND(KC_P));  // ctrl + p
-	P( RZ | RR,    SEND(KC_LCTL); SEND(KC_N));  // ctrl + n
-	P( RG | LP,    SEND(KC_LGUI); SEND(KC_E));  // win + e
-	P( RZ | ST1 | RS,    SEND(KC_LSFT); SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
+    P( ST2  | LSU | RF,   SEND(KC_LSFT); SEND(KC_GRV)); // ~
+    P( ST2  | RD,     SEND(KC_BSLS));					// backslash 
+    P( ST2  | ST1 | RD,   SEND(KC_LSFT); SEND(KC_BSLS));// |
+    P( ST2  | RS,     SEND(KC_SCLN));					// ;
+    P( ST2  | ST1 | RS,   SEND(KC_LSFT); SEND(KC_SCLN));// :
+    P( ST2  | LSD | RS,   SEND(KC_LSFT); SEND(KC_SCLN));// :
+    P( ST2  | RZ,     SEND(KC_QUOT));					// '
+    P( ST2  | ST1 | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
+    P( ST2  | LSD | RZ,   SEND(KC_LSFT); SEND(KC_QUOT));// "
+    	
+    // Mods & Specials
+    P( ST2 | RR,    SEND(KC_LCTL); SEND(KC_LALT); SEND(KC_DEL)); // ctrl + alt + del
+    P( ST2 | LH,    SEND(KC_ESC)); // esc
+    P( RB | RS,     SEND(KC_LALT)); // alt
+    P( LK | ST2,    SEND(KC_CAPS)); // caps lock
+    P( RZ | LH | LR,    SEND(KC_LCTL); SEND(KC_F));  // ctrl + f
+    P( RZ | LFT | LK,   SEND(KC_LCTL); SEND(KC_S));  // ctrl + s
+    P( RZ | LSU | LSD,  SEND(KC_LCTL); SEND(KC_A));  // ctrl + a
+    P( RZ | LR,    SEND(KC_LCTL); SEND(KC_V));  // ctrl + v
+    P( RZ | LW,    SEND(KC_LCTL); SEND(KC_C));  // ctrl + c
+    P( RZ | LSD,   SEND(KC_LCTL); SEND(KC_Z));  // ctrl + z
+    P( RZ | LFT,   SEND(KC_LCTL); SEND(KC_W));  // ctrl + w
+    P( RZ | ST1,   SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
+    P( RZ | RS | RD,    SEND(KC_LCTL); SEND(KC_P));  // ctrl + p
+    P( RZ | RR,    SEND(KC_LCTL); SEND(KC_N));  // ctrl + n
+    P( RG | LP,    SEND(KC_LGUI); SEND(KC_E));  // win + e
+    P( RZ | ST1 | RS,   SEND(KC_LSFT); SEND(KC_LCTL); SEND(KC_T));  // ctrl + t
 	
 
     return 0;
