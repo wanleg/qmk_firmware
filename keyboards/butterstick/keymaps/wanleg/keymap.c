@@ -60,12 +60,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [GAME] = LAYOUT_butter(
   	_______,	KC_MS_U,  _______, KC_ESC,   RESET,   KC_WH_L, 	KC_WH_D, KC_WH_U, KC_WH_R, KC_CAPS,
   	KC_MS_L,	KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, TO(MACROBAR), TO(BASE)
-  )
+  ),
 
   [MACROBAR] = LAYOUT_butter(
-  	KC_E, _______, _______, _______, _______, _______, _______, _______, _______, ______, 
-  	________, _______, _______, _______, _______, _______, _______, _______, _______, TO(BASE)
-  ),
+  	KC_E, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+  	_______, _______, _______, _______, _______, _______, _______, _______, _______, TO(BASE)
+  )
 };
 
 // Note: You can only use basic keycodes here!
