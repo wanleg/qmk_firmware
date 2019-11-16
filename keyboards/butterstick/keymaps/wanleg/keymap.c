@@ -46,6 +46,7 @@ END TEMPLATE
 // QMK Layer Numbers
  #define BASE 0
  #define GAME 1
+ #define MACROBAR 2
 
 // Do not change QMK Layer 0! This is your main keyboard.
 // Make your QMK modifications to the later layers, to add 
@@ -58,8 +59,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [GAME] = LAYOUT_butter(
   	_______,	KC_MS_U,  _______, KC_ESC,   RESET,   KC_WH_L, 	KC_WH_D, KC_WH_U, KC_WH_R, KC_CAPS,
-  	KC_MS_L,	KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, _______, TO(BASE)
+  	KC_MS_L,	KC_MS_D,  KC_MS_R, _______,  _______, KC_BTN3,	KC_BTN1, KC_BTN2, TO(MACROBAR), TO(BASE)
   )
+
+  [MACROBAR] = LAYOUT_butter(
+  	KC_E, _______, _______, _______, _______, _______, _______, _______, _______, ______, 
+  	________, _______, _______, _______, _______, _______, _______, _______, _______, TO(BASE)
+  ),
 };
 
 // Note: You can only use basic keycodes here!
@@ -166,10 +172,10 @@ uint32_t processQwerty(bool lookup) {
     P( DIR1 | RD  | ST1 | ST2,     SEND(KC_LSFT); SEND(KC_EQL));  // +
     P( DIR1 | LSD | LSU,   SEND(KC_LEFT));
     P( DIR1 | LK  | LFT,   SEND(KC_DOWN));
-    P( DIR1 | LP | LW,     SEND(KC_RIGHT));
-    P( DIR1 | LR | LH,     SEND(KC_PSCR));
-    P( DIR1 | RG,     	SEND(KC_END));
-    P( DIR1 | RS | RT,  SEND(KC_LBRC));
+    P( DIR1 | LP  | LW,    SEND(KC_RIGHT));
+    P( DIR1 | LR  | LH,    SEND(KC_PSCR));
+    P( DIR1 | RG,          SEND(KC_END));
+    P( DIR1 | RS  | RT,    SEND(KC_LBRC));
     P( DIR1 | RS | RT | ST1 | ST2,  SEND(KC_LSFT); SEND(KC_LBRC)); // {
     P( DIR1 | RZ | RD,  SEND(KC_RBRC));
     P( DIR1 | RZ | RD | ST1 | ST2,  SEND(KC_LSFT); SEND(KC_RBRC)); // }
