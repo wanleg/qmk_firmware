@@ -66,14 +66,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   	KC_E,    _______, _______, _______, _______, _______, _______, _______, _______, _______, 
   	_______, _______, _______, _______, _______, _______, _______, _______, _______, TO(BASE)
   )
-}
+};
 // Note: You can only use basic keycodes here!
 // P() is just a wrapper to make your life easier, any C code can be executed.
 // Only the longest matched chord is run!
 //
 // http://docs.gboards.ca
-uint32_t
-processQwerty(bool lookup) {
+uint32_t processQwerty(bool lookup) {
     // Minuscule Letters
     P(LSU, SEND(KC_Q));
     P(LFT, SEND(KC_W));
