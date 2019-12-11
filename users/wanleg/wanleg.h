@@ -89,6 +89,7 @@ enum {
   ,LYR50_TAP_DANCE
   ,LYR75_TAP_DANCE
   ,BSW_TAP_DANCE
+  ,SS1_TAP_DANCE
 };
 #endif
 

@@ -244,6 +244,27 @@ void BSW_reset (qk_tap_dance_state_t *state, void *user_data) {
   BSWtap_state.state = 0;
 }
 
+//instantiate 'tap' for the 'SS1' tap dance.
+//instantiate 'tap' for the 'SS1' tap dance.
+static tap SS1tap_state = {
+  .is_press_action = true,
+  .state = 0
+};
+
+void SS1_finished (qk_tap_dance_state_t *state, void *user_data) {
+  SS1tap_state.state = cur_dance(state);
+  switch (SS1tap_state.state) {
+	case SINGLE_TAP: SEND_STRING("wanleg@github.com"); break;
+	case DOUBLE_TAP: SEND_STRING("QMK is the best thing ever!"); break;
+  }
+}
+
+void SS1_reset (qk_tap_dance_state_t *state, void *user_data) {
+  switch (SS1tap_state.state) {
+  }
+  SS1tap_state.state = 0;
+}
+
 ///// QUAD FUNCTION TAP DANCE PERSONALIZATION SECTION END /////
 
 //Tap Dance Definitions
@@ -258,6 +279,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  ,[LYR75_TAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LYR75_finished, LYR75_reset)
  ,[LYR50_TAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LYR50_finished, LYR50_reset)
  ,[BSW_TAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, BSW_finished, BSW_reset)
+ ,[SS1_TAP_DANCE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, SS1_finished, SS1_reset)
 };
 
 //In Layer declaration, add tap dance item in place of a key code
