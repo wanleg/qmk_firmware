@@ -65,9 +65,6 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_TAP:
 		//register_code(KC_SPC);
 		SEND_STRING(SS_LGUI("l"));
-		#ifdef BACKLIGHT_ENABLE
-    backlight_level(3);
-		#endif
 		break;
     case SINGLE_HOLD:
 		//register_code(KC_NO);
@@ -79,18 +76,14 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
         SEND_STRING(SS_LCTRL("v"));
 		break; //register this keycode when button is held
     case DOUBLE_TAP:
-		//register_code(KC_ENT);
-		SEND_STRING(SS_LCTRL(SS_LALT(SS_TAP(X_DELETE))));
-		#ifdef BACKLIGHT_ENABLE
-    backlight_level(0);
-		#endif
+		SEND_STRING("wanleg@github.com");
 		break;
     //case DOUBLE_HOLD: register_code(KC_NO); break; //register this keycode when button is tapped and then held
 	case DOUBLE_HOLD:
 		reset_keyboard();
 		break; //register this keycode when button is tapped and then held
 	case TRIPLE_TAP:
-		SEND_STRING("wanleg@github.com");
+		SEND_STRING("some other string");
 		break;
 	case TRIPLE_HOLD:
   set_single_persistent_default_layer(1);
@@ -98,7 +91,10 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
     stop_all_notes();
     PLAY_SONG(lyrup_song);
   #endif
-  break;
+  #ifdef BACKLIGHT_ENABLE
+    backlight_level(3);
+  #endif
+		break;
   }
 }
 
@@ -215,13 +211,11 @@ static tap BSWtap_state = {
 void BSW_finished (qk_tap_dance_state_t *state, void *user_data) {
   BSWtap_state.state = cur_dance(state);
   switch (BSWtap_state.state) {
-    case SINGLE_TAP: register_code(KC_ENTER); break;
+    case SINGLE_TAP: 
+	  register_code(KC_LCTRL);
+      register_code(KC_A);
+	  break;
     case SINGLE_HOLD:
-      set_single_persistent_default_layer(0);
-      #ifdef AUDIO_ENABLE
-        stop_all_notes();
-        PLAY_SONG(lyrdown_song);
-      #endif
       break;
     case DOUBLE_TAP:
 	  register_code(KC_LCTRL);
@@ -230,21 +224,41 @@ void BSW_finished (qk_tap_dance_state_t *state, void *user_data) {
 	case DOUBLE_HOLD:
 	  reset_keyboard();
 	  break; //register this keycode when button is tapped and then held
+	case TRIPLE_TAP:
+	  register_code(KC_LCTRL);
+      register_code(KC_V);
+	  break;
+	case TRIPLE_HOLD:
+      set_single_persistent_default_layer(0);
+      #ifdef AUDIO_ENABLE
+        stop_all_notes();
+        PLAY_SONG(lyrdown_song);
+      #endif
+	  #ifdef BACKLIGHT_ENABLE
+		backlight_level(0);
+	  #endif
+	  break;
   }
 }
 
 void BSW_reset (qk_tap_dance_state_t *state, void *user_data) {
   switch (BSWtap_state.state) {
-    case SINGLE_TAP: unregister_code(KC_ENTER); break;
+    case SINGLE_TAP: 
+	  unregister_code(KC_LCTRL);
+      unregister_code(KC_A); 
+	  break;
     case DOUBLE_TAP:
 	  unregister_code(KC_LCTRL);
 	  unregister_code(KC_C);
+	  break;
+	case TRIPLE_TAP:
+	  unregister_code(KC_LCTRL);
+	  unregister_code(KC_V);
 	  break;
   }
   BSWtap_state.state = 0;
 }
 
-//instantiate 'tap' for the 'SS1' tap dance.
 //instantiate 'tap' for the 'SS1' tap dance.
 static tap SS1tap_state = {
   .is_press_action = true,
@@ -255,7 +269,7 @@ void SS1_finished (qk_tap_dance_state_t *state, void *user_data) {
   SS1tap_state.state = cur_dance(state);
   switch (SS1tap_state.state) {
 	case SINGLE_TAP: SEND_STRING("wanleg@github.com"); break;
-	case DOUBLE_TAP: SEND_STRING("QMK is the best thing ever!"); break;
+	case DOUBLE_TAP: SEND_STRING("some other string"); break;
   }
 }
 
