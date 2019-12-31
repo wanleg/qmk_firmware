@@ -83,7 +83,7 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
 		reset_keyboard();
 		break; //register this keycode when button is tapped and then held
 	case TRIPLE_TAP:
-		SEND_STRING("some other string");
+		SEND_STRING("QMK is the best thing ever!");
 		break;
 	case TRIPLE_HOLD:
   set_single_persistent_default_layer(1);
@@ -269,7 +269,7 @@ void SS1_finished (qk_tap_dance_state_t *state, void *user_data) {
   SS1tap_state.state = cur_dance(state);
   switch (SS1tap_state.state) {
 	case SINGLE_TAP: SEND_STRING("wanleg@github.com"); break;
-	case DOUBLE_TAP: SEND_STRING("some other string"); break;
+	case DOUBLE_TAP: SEND_STRING("QMK is the best thing ever!"); break;
   }
 }
 
