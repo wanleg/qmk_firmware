@@ -1,0 +1,2 @@
+AUDIO_ENABLE = no
+SWAP_HANDS_ENABLE = yes

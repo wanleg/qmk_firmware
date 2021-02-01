@@ -108,6 +108,7 @@ enum {
 #define LAYOUT_ortho_5x5_wrapper(...)        LAYOUT_ortho_5x5(__VA_ARGS__)
 #define LAYOUT_ortho_5x10_wrapper(...)       LAYOUT_ortho_5x10(__VA_ARGS__)
 #define LAYOUT_ortho_5x15_wrapper(...)       LAYOUT_ortho_5x15(__VA_ARGS__)
+#define LAYOUT_split_3x6_3_base_wrapper(...) LAYOUT_split_3x6_3_base(__VA_ARGS__)
 
 // Blocks for each of the major keyboard layouts
 // Organized so we can quickly adapt and modify all of them
