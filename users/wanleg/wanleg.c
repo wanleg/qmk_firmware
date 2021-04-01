@@ -7,9 +7,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QW);
-		      #if defined(RGBLIGHT_ENABLE)
+          #if defined(RGBLIGHT_ENABLE)
             rgblight_sethsv_noeeprom(0,0,255);
-            rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
+            //rgblight_mode_noeeprom(RGB_MODE_BREATHE); //causes issues, needs to be fixed
           #endif
       }
       return false;
@@ -28,7 +28,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(gGK);
 		      #if defined(RGBLIGHT_ENABLE)
             rgblight_sethsv_noeeprom(64,255,64);
-            rgblight_mode_noeeprom(RGBLIGHT_MODE_KNIGHT);
+            //rgblight_mode_noeeprom(RGB_MODE_KNIGHT); //causes issues, needs to be fixed
 		      #endif
       }
       return false;
