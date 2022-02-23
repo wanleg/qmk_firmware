@@ -3,7 +3,7 @@
 ![5x5](https://3.bp.blogspot.com/-bKOfUyMtdrE/WqGA_03kGZI/AAAAAAACPtY/DsHDTQS0IlMD3ie8HHlf1ATRUAwpZdcSgCLcBGAs/s1600/c.jpg)  
 ===  
 
-**Modular Keypad/Keyboard**  
+## Modular Keypad/Keyboard
 The basic unit is a 5x5 matrix with 25 keys. Up to 3 of these can be connected to each other side by side.  
 5x5, 5x10, and 5x15 matrices are possible.  
 There are pads for header pins on each side that complete the circuits from board to board. These can be permanently connected with solder bridges or temporarily with pin headers and shunt jumpers.  
