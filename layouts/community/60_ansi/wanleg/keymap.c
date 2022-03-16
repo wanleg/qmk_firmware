@@ -7,7 +7,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,  KC_BSLS,
  KC_CAPS, KC_A,	   KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,
  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
- RESET,   RGB_M_R,          RGB_TOG,                   LT(gDIR,KC_SPC),                             KC_RALT, KC_RGUI,  KC_RGUI, KC_RCTL
+ RESET,   RGB_M_R,  RGB_TOG,                   LT(gDIR,KC_SPC),                             KC_RALT, KC_RGUI,  KC_RGUI, KC_RCTL
 ), 
 /*
 [gNUM] = LAYOUT_ansi_base_wrapper(
@@ -17,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 */
 [gDIR] = LAYOUT_60_ansi_wrapper(
- _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+ KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_TRNS, 
  _______, _______________Gherkin_DIR_0_______________, _______, _______, _______, 
  _______, _______________Gherkin_DIR_1_______________, _______, _______, 
  _______, _______________Gherkin_DIR_2_______________, _______, 
