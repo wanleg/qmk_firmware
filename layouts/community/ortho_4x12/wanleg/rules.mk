@@ -1,5 +1,6 @@
 AUDIO_ENABLE = no
 SWAP_HANDS_ENABLE = no
+TAP_DANCE_ENABLE = yes
 
 ifeq ($(strip $(KEYBOARD)), lets_split/rev2)
 	SWAP_HANDS_ENABLE = yes

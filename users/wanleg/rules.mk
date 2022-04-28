@@ -1,6 +1,8 @@
-SRC += wanleg.c tapdances.c
+SRC += wanleg.c 
+ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
+SRC += tapdances.c
+endif
 
-TAP_DANCE_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 
 #If using a ProMicro and it has the QMK DFU bootloader instead of Caterina,

@@ -1,3 +1,4 @@
+TAP_DANCE_ENABLE = yes
 ifeq ($(strip $(KEYBOARD)), xd75)
 #or
 #ifeq (,$(findstring xd75,$(KEYBOARD)))

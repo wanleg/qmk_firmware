@@ -109,6 +109,8 @@ enum {
 #define LAYOUT_ortho_5x10_wrapper(...)       LAYOUT_ortho_5x10(__VA_ARGS__)
 #define LAYOUT_ortho_5x15_wrapper(...)       LAYOUT_ortho_5x15(__VA_ARGS__)
 #define LAYOUT_split_3x6_3_wrapper(...)      LAYOUT_split_3x6_3(__VA_ARGS__)
+#define LAYOUT_split_3x5_3_wrapper(...)      LAYOUT_split_3x5_3(__VA_ARGS__)
+#define LAYOUT_60_ansi_wrapper(...)	     LAYOUT_60_ansi(__VA_ARGS__)
 
 // Blocks for each of the major keyboard layouts
 // Organized so we can quickly adapt and modify all of them
@@ -131,8 +133,8 @@ enum {
  * | SFThold|        |        |        |        |        |        |        |        |CTRLhold|
  * '-----------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_Row_0_______________			TD(TD_Q_ESC),	KC_W,	KC_E, 	KC_R, 			KC_T, 			KC_Y, 	KC_U, 			KC_I, 			KC_O, 			KC_P
-#define _______________Gherkin_Row_1_______________			KC_A, 			KC_S, 	KC_D, 	KC_F, 			KC_G, 			KC_H, 	KC_J, 			KC_K, 			KC_L, 			SFT_T(KC_SPC)
+#define _______________Gherkin_Row_0_______________			TD(TD_Q_ESC),	KC_W,	KC_E, 	KC_R,	KC_T, 	KC_Y, 	KC_U,   KC_I,	KC_O,  KC_P
+#define _______________Gherkin_Row_1_______________			KC_A, 		KC_S, 	KC_D, 	KC_F,	KC_G,	KC_H, 	KC_J, 	KC_K, 	KC_L,  SFT_T(KC_SPC)
 #define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), 	KC_X, 	KC_C, 	LT(gNUM,KC_V),	LT(gETC,KC_B),  LT(_FN,KC_N), 	LT(gDIR,KC_M), 	GUI_T(KC_COMM),	ALT_T(KC_DOT),	CTL_T(KC_BSPC)
 
 /* Gherkin Directional Keys

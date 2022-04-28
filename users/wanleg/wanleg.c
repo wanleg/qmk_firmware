@@ -9,7 +9,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_QW);
           #if defined(RGBLIGHT_ENABLE)
             rgblight_sethsv_noeeprom(0,0,255);
-            //rgblight_mode_noeeprom(RGB_MODE_BREATHE); //causes issues, needs to be fixed
+	    rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
           #endif
       }
       return false;
@@ -28,7 +28,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(gGK);
 		      #if defined(RGBLIGHT_ENABLE)
             rgblight_sethsv_noeeprom(64,255,64);
-            //rgblight_mode_noeeprom(RGB_MODE_KNIGHT); //causes issues, needs to be fixed
+            rgblight_mode_noeeprom(RGBLIGHT_MODE_KNIGHT); 
 		      #endif
       }
       return false;
@@ -169,7 +169,8 @@ void matrix_init_user(void) {
 //at end of firmware startup process, change powerup default layer and underglow colour for kbd6x
 void keyboard_post_init_user(void) {
   #if defined(KEYBOARD_kbdfans_kbd6x)
-    set_single_persistent_default_layer(_QW);
+    //set_single_persistent_default_layer(_QW);
+    set_single_persistent_default_layer(_GK);
     //rgblight_mode_noeeprom(RGBLIGHT_MODE_SNAKE + 5);
 	rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
 	rgblight_sethsv_noeeprom(255,255,255);    
