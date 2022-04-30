@@ -18,7 +18,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         set_single_persistent_default_layer(_GK);
           #if defined(RGBLIGHT_ENABLE)
-            rgblight_sethsv_noeeprom(128,255,64);
+            rgblight_sethsv_noeeprom(255,255,64);
+            rgblight_mode_noeeprom(RGBLIGHT_MODE_KNIGHT); 
           #endif
       }
       return false;
@@ -167,6 +168,7 @@ void matrix_init_user(void) {
 }
 
 //at end of firmware startup process, change powerup default layer and underglow colour for kbd6x
+/*
 void keyboard_post_init_user(void) {
   #if defined(KEYBOARD_kbdfans_kbd6x)
     //set_single_persistent_default_layer(_QW);
@@ -176,3 +178,4 @@ void keyboard_post_init_user(void) {
 	rgblight_sethsv_noeeprom(255,255,255);    
   #endif
 }
+*/
