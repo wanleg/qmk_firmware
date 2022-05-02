@@ -4,6 +4,7 @@ SRC += tapdances.c
 endif
 
 MOUSEKEY_ENABLE = yes
+EXTRAKEY_ENABLE = yes #Audio control and System control
 
 #If using a ProMicro and it has the QMK DFU bootloader instead of Caterina,
 #run "make <keyboard>:<keymap> dfu=qmk" when compiling to ensure it is flagged properly after being flashed
