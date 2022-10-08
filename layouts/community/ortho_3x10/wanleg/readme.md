@@ -78,3 +78,7 @@ Change `comPORT` to whatever port is used by the Arduino (e.g. `com11` in Window
 ## Using QMK DFU
 7. Once QMK DFU is burned to your ProMicro, you can then flash subsequent hex files with
 `make gherkin:<keymap>:dfu`  
+
+# ProMicro Bootloader Replacement (Return to Caterina)
+1. Connect everything as in **Arduino Setup** above.
+2. Burn the bootloader as described in https://docs.arduino.cc/built-in-examples/arduino-isp/ArduinoToBreadboard, but use "Arduino Leonardo" as the selected board.
