@@ -124,8 +124,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-  //on RESET, underglow red if present
-  case RESET:
+  //on entering bootloader mode, underglow red if present
+  case QK_BOOT:
       if (record->event.pressed) {
         #if defined(RGBLIGHT_ENABLE)
           rgblight_enable_noeeprom(); // enables Rgb, without saving settings
