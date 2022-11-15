@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 // OLED animation
-#include "./lib/layer_status/layer_status.h"
+//#include "./lib/layer_status/layer_status.h"
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -30,17 +30,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        └───┴───┴───┴───┘
 */
     [_BASE] = LAYOUT(
-		TO(_BASE),TO(_FN), TO(_FN1),TO(_FN2), XXXXXXX,
-		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
-		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_MUTE,
+		TO(_BASE),TO(_FN), TO(_FN1),TO(_FN2), KC_BTN1,
+		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_BTN2,
+		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_BTN3,
 		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
             ),
 
     [_FN] = LAYOUT(
                 _______, _______, _______, _______, _______,
-                KC_BTN1, KC_BTN3, KC_BTN2, _______, _______,
                 _______, _______, _______, _______, _______,
-                _______, _______, KC_PWR, KC_KB_POWER 
+                _______, _______, _______, _______, _______,
+                _______, _______, _______, _______
             ),
 
     [_FN1] = LAYOUT(
@@ -51,26 +51,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ),
 
     [_FN2] = LAYOUT(
-                _______, _______, _______, _______, RGB_MOD,
-		_______, _______, _______, _______, RGB_RMOD,
-		_______, _______, _______, _______, RGB_TOG,
-                _______, _______, _______, QK_BOOT
+                _______, _______, _______, _______,  _______,
+		RGB_VAD, RGB_VAI, _______, RGB_TOG,  _______,
+		RGB_HUD, RGB_HUI, RGB_MOD, RGB_RMOD, _______,
+                RGB_SAD, RGB_SAI, _______, QK_BOOT
             ),
 };
 
 #ifdef OLED_ENABLE
     bool oled_task_user(void) {
+/* //original block
         render_layer_status();
 
         return true;
+*/
+    // Host Keyboard Layer Status
+    //oled_write_P(PSTR("\nLayer: "), false);
+
+    switch (get_highest_layer(layer_state)) {
+
+        case _BASE:
+            //oled_write_P(PSTR("Default\n"), false);
+            oled_write_P(PSTR("\nDefault\n\n\n"), false);
+            break;
+        case _FN:
+	    //oled_clear();
+            oled_write_P(PSTR("\nFN\n"), false);
+            break;
+        case _FN1:
+            oled_write_P(PSTR("ADJ\n"), false);
+            break;
+        case _FN2:
+            oled_write_P(PSTR("AXJ\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
+        return true; //copied from original block
     }
 #endif
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_BASE] = { ENCODER_CCW_CW(KC_WH_L, KC_WH_R), ENCODER_CCW_CW(KC_WH_D, KC_WH_U), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_FN]   = { ENCODER_CCW_CW(KC_MS_L, KC_MS_R), ENCODER_CCW_CW(KC_MS_D, KC_MS_U), ENCODER_CCW_CW(_______, _______) },
-    [_FN1]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-    [_FN2]  = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(RGB_SAD, RGB_SAI), ENCODER_CCW_CW(RGB_VAD, RGB_VAI) },
+    [_FN]   = { ENCODER_CCW_CW(KC_MS_L, KC_MS_R), ENCODER_CCW_CW(KC_MS_D, KC_MS_U), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
+    [_FN1]  = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
+    [_FN2]  = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
 };
 #endif
