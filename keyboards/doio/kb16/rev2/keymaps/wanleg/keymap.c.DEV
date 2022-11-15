@@ -1,3 +1,4 @@
+// This version uses text instead of images for OLED display
 #include QMK_KEYBOARD_H
 
 // OLED animation
