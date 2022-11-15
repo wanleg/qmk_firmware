@@ -30,17 +30,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        └───┴───┴───┴───┘
 */
     [_BASE] = LAYOUT(
-		TO(_BASE),TO(_FN), TO(_FN1),TO(_FN2), KC_BTN1,
-		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_BTN2,
-		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_BTN3,
+		TO(_BASE),TO(_FN), TO(_FN1),TO(_FN2), XXXXXXX,
+		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  KC_MUTE,
 		XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
             ),
 
     [_FN] = LAYOUT(
                 _______, _______, _______, _______, _______,
-                KC_BTN1, KC_BTN2, _______, _______, _______,
+                KC_BTN1, KC_BTN3, KC_BTN2, _______, _______,
                 _______, _______, _______, _______, _______,
-                _______, _______, _______, _______
+                _______, _______, KC_PWR, KC_KB_POWER 
             ),
 
     [_FN1] = LAYOUT(
