@@ -16,17 +16,19 @@ const uint16_t PROGMEM twoKeySpace[] = {LT(_FN,KC_N), LT(gDIR,KC_M), COMBO_END};
 combo_t key_combos[] = {
     [THUMB_SPACE] = COMBO_ACTION(twoKeySpace),
     //COMBO(twoKeySpace, KC_SPC), //can define simple actions here
-    [EM_EMAIL] = COMBO_ACTION(email_combo), //complex actions can be described below
+    //[EM_EMAIL] = COMBO_ACTION(email_combo), //complex actions can be described below
 };
 /* COMBO_ACTION(x) is same as COMBO(x, KC_NO) */
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
+/*
     case EM_EMAIL:
       if (pressed) {
         SEND_STRING("john.doe@example.com");
       }
       break;
+*/
     case THUMB_SPACE:
       if (pressed) {
         tap_code16(KC_SPC);
