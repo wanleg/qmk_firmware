@@ -15,7 +15,6 @@
 #define QMK_LED B0
 #define QMK_ESC_OUTPUT F6 // usually COL
 #define QMK_ESC_INPUT D7 // usually ROW
-#define USE_SERIAL
 #undef USE_I2C
 #define EE_HANDS
 #endif
