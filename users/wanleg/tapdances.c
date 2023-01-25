@@ -69,22 +69,14 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_HOLD:
 		//register_code(KC_NO);
 		//take a screenshot of a single window, open Paint and paste
-		SEND_STRING(SS_LALT(SS_TAP(X_PRINT_SCREEN)) SS_LGUI("r"));
+		SEND_STRING(SS_LALT(SS_TAP(X_PSCREEN)) SS_LGUI("r"));
         wait_ms(500);
         SEND_STRING("mspaint" SS_TAP(X_ENTER));
         wait_ms(700);
-        SEND_STRING(SS_LCTL("v"));
+        SEND_STRING(SS_LCTRL("v"));
 		break; //register this keycode when button is held
     case DOUBLE_TAP:
-<<<<<<< HEAD
 		SEND_STRING("wanleg@github.com");
-=======
-		//register_code(KC_ENT);
-		SEND_STRING(SS_LCTL(SS_LALT(SS_TAP(X_DELETE))));
-		#ifdef BACKLIGHT_ENABLE
-    backlight_level(0);
-		#endif
->>>>>>> master
 		break;
     //case DOUBLE_HOLD: register_code(KC_NO); break; //register this keycode when button is tapped and then held
 	case DOUBLE_HOLD:
@@ -226,7 +218,7 @@ void BSW_finished (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_HOLD:
       break;
     case DOUBLE_TAP:
-	  register_code(KC_LCTL);
+	  register_code(KC_LCTRL);
       register_code(KC_C);
 	  break;
 	case DOUBLE_HOLD:
@@ -256,7 +248,7 @@ void BSW_reset (qk_tap_dance_state_t *state, void *user_data) {
       unregister_code(KC_A); 
 	  break;
     case DOUBLE_TAP:
-	  unregister_code(KC_LCTL);
+	  unregister_code(KC_LCTRL);
 	  unregister_code(KC_C);
 	  break;
 	case TRIPLE_TAP:
