@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "wanleg.h" //needed for mouseJiggler keycode definition
 
 // OLED animation
 #include "./lib/layer_status/layer_status.h"
@@ -11,7 +10,7 @@
 
 enum layer_names {
     _BASE,
-    _FN0,
+    _FN,
     _FN1,
     _FN2,
     hexA,
@@ -70,21 +69,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 //Combo section end
 
-//mouse jiggle section start
-bool mouse_jiggle_mode = false; //first declared in wanleg.c
-void matrix_scan_user(void) {
-  if (mouse_jiggle_mode) {
-  //SEND_STRING(SS_DELAY(15)); //in milliseconds
-  tap_code(KC_MS_UP);
-  tap_code(KC_MS_DOWN);
-  //SEND_STRING(SS_DELAY(15)); //in milliseconds
-  tap_code(KC_MS_LEFT);
-  tap_code(KC_MS_RIGHT);
-  } else { //not sure if this else-statement is necessary...
-  }
-}
-//mouse jiggle section end
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
        ┌───┬───┬───┬───┐   ┌───┐ ┌───┐
@@ -98,17 +82,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        └───┴───┴───┴───┘
 */
     [_BASE] = LAYOUT(
-		TO(_BASE), TO(_FN0), TO(_FN1),TO(_FN2), XXXXXXX,
+		TO(_BASE), TO(_FN), TO(_FN1),TO(_FN2), XXXXXXX,
 		XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
 		XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX,  KC_MUTE,
 		XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX
             ),
 
-    [_FN0] = LAYOUT(
+    [_FN] = LAYOUT(
                 _______, _______, _______, _______, _______,
                 KC_BTN1, KC_BTN3, KC_BTN2, _______, _______,
                 _______, _______, _______, _______, _______,
-                MOUSEJIGGLERMACRO, _______, KC_PWR, KC_KB_POWER 
+                _______, _______, KC_PWR, KC_KB_POWER 
             ),
 
     [_FN1] = LAYOUT(
@@ -176,20 +160,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         default:
             // Or use the write_ln shortcut over adding '\n' to the end of your string
             //oled_write_ln_P(PSTR("Undefined"), false);
-            if (mouse_jiggle_mode) {
-            oled_write_P(PSTR("\n MouseJiggle Active\n\n\n"), false);
-            } else {
             render_layer_status();
-            }
     }
         return true; //copied from original block
-}
+    }
 #endif
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_BASE] = { ENCODER_CCW_CW(KC_WH_L, KC_WH_R), ENCODER_CCW_CW(KC_WH_D, KC_WH_U), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_FN0]   = { ENCODER_CCW_CW(KC_MS_L, KC_MS_R), ENCODER_CCW_CW(KC_MS_D, KC_MS_U), ENCODER_CCW_CW(_______, _______) },
+    [_FN]   = { ENCODER_CCW_CW(KC_MS_L, KC_MS_R), ENCODER_CCW_CW(KC_MS_D, KC_MS_U), ENCODER_CCW_CW(_______, _______) },
     [_FN1]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_FN2]  = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(RGB_SAD, RGB_SAI), ENCODER_CCW_CW(RGB_VAD, RGB_VAI) },
     [hexA]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(TO(hexC), TO(hexB)) },

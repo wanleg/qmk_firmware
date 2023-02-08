@@ -1,5 +1,7 @@
 #include "wanleg.h"
 
+bool mouse_jiggle_mode; //declare variable for mouse jiggler use
+
 // Defines actions for my global custom keycodes. Defined in wanleg.h file
 // Then runs the _keymap's record handier if not processed here
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -108,7 +110,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-	case gETCETERA:
+  case gETCETERA:
       if (record->event.pressed) {
         layer_on(gETC);
       } else {
@@ -116,7 +118,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-	case FUNCTION:
+  case FUNCTION:
       if (record->event.pressed) {
         layer_on(_FN);
       } else {
@@ -134,6 +136,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return true; // Let QMK send the press/release events as normal
+      break;
+  case MOUSEJIGGLERMACRO:
+      if (record->event.pressed) {
+        if (mouse_jiggle_mode) {
+            mouse_jiggle_mode = false;
+        } else {
+            mouse_jiggle_mode = true;
+        }
+      SEND_STRING(SS_DELAY(100)); //uncomment if it switches too fast before the button debounces
+      } else {
+      }
       break;
   }
   return true;

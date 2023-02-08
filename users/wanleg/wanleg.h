@@ -75,6 +75,7 @@ enum userspace_custom_keycodes {
   FUNCTION,
   NUMPAD,
   GHERKIN50,
+  MOUSEJIGGLERMACRO,
 
 };
 
