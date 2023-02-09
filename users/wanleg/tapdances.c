@@ -69,11 +69,11 @@ void CAD_finished (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_HOLD:
 		//register_code(KC_NO);
 		//take a screenshot of a single window, open Paint and paste
-		SEND_STRING(SS_LALT(SS_TAP(X_PSCREEN)) SS_LGUI("r"));
+		SEND_STRING(SS_LALT(SS_TAP(X_PRINT_SCREEN)) SS_LGUI("r"));
         wait_ms(500);
         SEND_STRING("mspaint" SS_TAP(X_ENTER));
         wait_ms(700);
-        SEND_STRING(SS_LCTRL("v"));
+        SEND_STRING(SS_LCTL("v"));
 		break; //register this keycode when button is held
     case DOUBLE_TAP:
 		SEND_STRING("wanleg@github.com");
@@ -211,22 +211,22 @@ static tap BSWtap_state = {
 void BSW_finished (qk_tap_dance_state_t *state, void *user_data) {
   BSWtap_state.state = cur_dance(state);
   switch (BSWtap_state.state) {
-    case SINGLE_TAP: 
-	  register_code(KC_LCTRL);
-      register_code(KC_A);
-	  break;
+    case SINGLE_TAP:
+         register_code(KC_ENTER);
+	 break;
+
     case SINGLE_HOLD:
       break;
     case DOUBLE_TAP:
-	  register_code(KC_LCTRL);
-      register_code(KC_C);
+          register_code(KC_LCTL);
+          register_code(KC_C);
 	  break;
 	case DOUBLE_HOLD:
 	  reset_keyboard();
 	  break; //register this keycode when button is tapped and then held
 	case TRIPLE_TAP:
-	  register_code(KC_LCTRL);
-      register_code(KC_V);
+          register_code(KC_LCTL);
+         register_code(KC_V);
 	  break;
 	case TRIPLE_HOLD:
       set_single_persistent_default_layer(0);
@@ -244,15 +244,15 @@ void BSW_finished (qk_tap_dance_state_t *state, void *user_data) {
 void BSW_reset (qk_tap_dance_state_t *state, void *user_data) {
   switch (BSWtap_state.state) {
     case SINGLE_TAP: 
-	  unregister_code(KC_LCTRL);
-      unregister_code(KC_A); 
+          unregister_code(KC_LCTL);
+          unregister_code(KC_A); 
 	  break;
     case DOUBLE_TAP:
-	  unregister_code(KC_LCTRL);
+          unregister_code(KC_LCTL);
 	  unregister_code(KC_C);
 	  break;
 	case TRIPLE_TAP:
-	  unregister_code(KC_LCTRL);
+          unregister_code(KC_LCTL);
 	  unregister_code(KC_V);
 	  break;
   }
