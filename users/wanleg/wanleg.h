@@ -1,5 +1,4 @@
 #pragma once
-
 #include "quantum.h"
 
 // Define layer names and order
@@ -40,7 +39,7 @@ enum userspace_layers {
   _FN,
 };
 #else
-  enum userspace_layers {
+enum userspace_layers {
   _GK = 0,
   _QW,
   PAD,
@@ -76,6 +75,7 @@ enum userspace_custom_keycodes {
   NUMPAD,
   GHERKIN50,
   MOUSEJIGGLERMACRO,
+  DASHER,
 
 };
 
@@ -83,21 +83,21 @@ enum userspace_custom_keycodes {
 #ifdef TAP_DANCE_ENABLE
 enum {
   TD_SFT_CAPS = 0
-  ,TD_Q_ESC
-  ,CAD_TD
-  ,RST_TAP_DANCE
-  ,LYR_TAP_DANCE
-  ,LYR50_TAP_DANCE
-  ,LYR75_TAP_DANCE
-  ,BSW_TAP_DANCE
-  ,SS1_TAP_DANCE
+  , TD_Q_ESC
+  , CAD_TD
+  , RST_TAP_DANCE
+  , LYR_TAP_DANCE
+  , LYR50_TAP_DANCE
+  , LYR75_TAP_DANCE
+  , BSW_TAP_DANCE
+  , SS1_TAP_DANCE
 };
 #endif
 
 // Since our quirky block definitions are basically a list of comma separated
 // arguments, we need a wrapper in order for these definitions to be
 // expanded before being used as arguments to the LAYOUT_xxx macro.
-#if (!defined(LAYOUT) && defined(KEYMAP))
+#if(!defined(LAYOUT) && defined(KEYMAP))
 #define LAYOUT KEYMAP
 #endif
 
@@ -134,9 +134,9 @@ enum {
  * | SFThold|        |        |        |        |        |        |        |        |CTRLhold|
  * '-----------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_Row_0_______________			TD(TD_Q_ESC),	KC_W,	KC_E, 	KC_R,	KC_T, 	KC_Y, 	KC_U,   KC_I,	KC_O,  KC_P
-#define _______________Gherkin_Row_1_______________			KC_A, 		KC_S, 	KC_D, 	KC_F,	KC_G,	KC_H, 	KC_J, 	KC_K, 	KC_L,  SFT_T(KC_SPC)
-#define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), 	KC_X, 	KC_C, 	LT(gNUM,KC_V),	LT(gETC,KC_B),  LT(_FN,KC_N), 	LT(gDIR,KC_M), 	GUI_T(KC_COMM),	ALT_T(KC_DOT),	CTL_T(KC_BSPC)
+#define _______________Gherkin_Row_0_______________			TD(TD_Q_ESC), KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P
+#define _______________Gherkin_Row_1_______________			KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, SFT_T(KC_SPC)
+#define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), KC_X, KC_C, LT(gNUM, KC_V), LT(gETC, KC_B), LT(_FN, KC_N), LT(gDIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC)
 
 /* Gherkin Directional Keys
  * .-----------------------------------------------------------------------------------------.
@@ -147,8 +147,8 @@ enum {
  * | P-Brk  |        |        |        |        |        |        | RGUI   | ALT    |  /     |
  * '-----------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_DIR_0_______________			KC_TAB,	 KC_UP,   _______, KC_INS,  KC_LCTL, KC_RSFT, KC_PGUP, KC_HOME, KC_MINS, KC_EQL
-#define _______________Gherkin_DIR_1_______________			KC_LEFT, KC_DOWN, KC_RGHT, KC_PSCR, KC_LSFT, KC_RCTL, KC_PGDN, KC_END,  KC_LBRC, KC_RBRC
+#define _______________Gherkin_DIR_0_______________			KC_TAB, KC_UP, _______, KC_INS, KC_LCTL, KC_RSFT, KC_PGUP, KC_HOME, KC_MINS, KC_EQL
+#define _______________Gherkin_DIR_1_______________			KC_LEFT, KC_DOWN, KC_RGHT, KC_PSCR, KC_LSFT, KC_RCTL, KC_PGDN, KC_END, KC_LBRC, KC_RBRC
 #define _______________Gherkin_DIR_2_______________			KC_PAUS, _______, _______, _______, _______, _______, _______, KC_RGUI, KC_LALT, KC_SLSH
 
 /* Gherkin Numbers
@@ -161,9 +161,9 @@ enum {
  * |        |        |        |        |        |        |        |        |        |CTRLhold|
  * '-----------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_NUM_0_______________			KC_F1,  KC_F2,  KC_F3,  KC_F4,   KC_F5,   KC_F6,  KC_F7,   KC_F8,   KC_F9,         KC_F10
-#define _______________Gherkin_NUM_1_______________			KC_1,   KC_2,   KC_3,	KC_4,    KC_5,    KC_6,   KC_7,    KC_8,    KC_9,          KC_0
-#define _______________Gherkin_NUM_2_______________			KC_F11, KC_F12, _______,_______, _______, KC_ENT, KC_RSFT, KC_RGUI, ALT_T(KC_DOT), CTL_T(KC_BSPC)
+#define _______________Gherkin_NUM_0_______________			KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10
+#define _______________Gherkin_NUM_1_______________			KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0
+#define _______________Gherkin_NUM_2_______________			KC_F11, KC_F12, _______, _______, _______, KC_ENT, KC_RSFT, KC_RGUI, ALT_T(KC_DOT), CTL_T(KC_BSPC)
 
 /* Gherkin Et Cetera
  * .-----------------------------------------------------------------------------------------.
@@ -174,9 +174,9 @@ enum {
  * | Sft//Cp| CAPS   |        |        |        | C-A-D  | mScrL  | mScrR  | ALT    |  DEL   |
  * '-----------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_ETC_0_______________			KC_GRV, 		KC_MS_U, _______,KC_ESC,  QK_BOOT, KC_RSFT, 			KC_WH_D, KC_WH_U, _______, KC_BSLS
-#define _______________Gherkin_ETC_1_______________			KC_MS_L, 		KC_MS_D, KC_MS_R,_______, KC_LSFT, KC_BTN3, 			KC_BTN1, KC_BTN2, KC_SCLN, KC_QUOT
-#define _______________Gherkin_ETC_2_______________			TD(TD_SFT_CAPS),KC_CAPS, _______,_______, _______, LALT(LCTL(KC_DEL)),	KC_WH_L, KC_WH_R, KC_LALT, KC_DEL
+#define _______________Gherkin_ETC_0_______________			KC_GRV, KC_MS_U, _______, KC_ESC, QK_BOOT, KC_RSFT, KC_WH_D, KC_WH_U, _______, KC_BSLS
+#define _______________Gherkin_ETC_1_______________			KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_LSFT, KC_BTN3, KC_BTN1, KC_BTN2, KC_SCLN, KC_QUOT
+#define _______________Gherkin_ETC_2_______________			TD(TD_SFT_CAPS), KC_CAPS, _______, _______, _______, LALT(LCTL(KC_DEL)), KC_WH_L, KC_WH_R, KC_LALT, KC_DEL
 
 /* Gherkin-Like
  * .-----------------------------------------------------------------------------------------------------------.
@@ -194,10 +194,10 @@ enum {
 #define _______________GherkinLike_0_______________     KC_ESC, _______________Gherkin_Row_0_______________, KC_BSPC
 #define _______________GherkinLike_1_______________     KC_TAB, _______________Gherkin_Row_1_______________, KC_QUOT
 //#define _______________GherkinLike_2_______________     TD(TD_SFT_CAPS), SFT_T(KC_Z), KC_X, KC_C, LT(NUM, KC_V),LT(ETC, KC_B),LT(_FN,KC_N), LT(DIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC), SFT_T(KC_ENT)
-#define _______________GherkinLike_2_______________     TD(TD_SFT_CAPS), SFT_T(KC_Z), 	KC_X, 	KC_C, 	KC_V,	LT(ETC, KC_B),  KC_N, 	KC_M, 	KC_COMM,	ALT_T(KC_DOT),	CTL_T(KC_BSPC), SFT_T(KC_ENT)
-#define _______________GherkinLike_3_______________     KC_LCTL, KC_LGUI, KC_LALT, KC_LCTL, NUMBER, ETCETERA, LT(_FN,KC_SPC),DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
+#define _______________GherkinLike_2_______________     TD(TD_SFT_CAPS), SFT_T(KC_Z), KC_X, KC_C, KC_V, LT(ETC, KC_B), KC_N, KC_M, KC_COMM, ALT_T(KC_DOT), CTL_T(KC_BSPC), SFT_T(KC_ENT)
+#define _______________GherkinLike_3_______________     KC_LCTL, KC_LGUI, KC_LALT, KC_LCTL, NUMBER, ETCETERA, LT(_FN, KC_SPC), DIRECTION, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
 //#define _______________GherkinLike_3_OneHand_______     KC_LCTL, KC_LGUI, KC_LALT, ONEHAND, NUMBER, ETCETERA, LT(_FN,KC_SPC),DIRECTION, KC_RGUI, KC_RALT, ONEHAND, KC_RCTL
-#define _______________GherkinLike_3_OneHand_______     KC_LCTL, KC_LGUI, KC_LALT, KC_LCTL, NUMBER, ETCETERA, LT(_FN,KC_SPC),DIRECTION, KC_RGUI, KC_RALT, ONEHAND, KC_RCTL
+#define _______________GherkinLike_3_OneHand_______     KC_LCTL, KC_LGUI, KC_LALT, KC_LCTL, NUMBER, ETCETERA, LT(_FN, KC_SPC), DIRECTION, KC_RGUI, KC_RALT, ONEHAND, KC_RCTL
 
 /* Qwerty
  * .-------------------------------------------------------------------------------------.
@@ -210,10 +210,10 @@ enum {
  * | LCTRL | LGUI | ALT  | ALT  | SUB  | SHIFT| SPACE| SUP  | RGUI | RALT | DEL  | CTRL  |
  * '-------------------------------------------------------------------------------------'
  */
-#define _______________Qwerty_Row__0_______________   KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC
-#define _______________Qwerty_Row__1_______________   KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT
-#define _______________Qwerty_Row__2_______________   TD(TD_SFT_CAPS),  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_T(KC_ENT)
-#define _______________Qwerty_Row__3_______________   KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SUBTER,  KC_LSFT, LT(_FN,KC_SPC),  SUPRA,   KC_RGUI, KC_RALT, KC_DEL,  KC_RCTL
+#define _______________Qwerty_Row__0_______________   KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC
+#define _______________Qwerty_Row__1_______________   KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT
+#define _______________Qwerty_Row__2_______________   TD(TD_SFT_CAPS), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_ENT)
+#define _______________Qwerty_Row__3_______________   KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SUBTER, KC_LSFT, LT(_FN, KC_SPC), SUPRA, KC_RGUI, KC_RALT, KC_DEL, KC_RCTL
 
 /* SUPRA
  * .-----------------------------------------------------------------------------------------------------------.
@@ -226,8 +226,8 @@ enum {
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * '-----------------------------------------------------------------------------------------------------------'
  */
-#define ________________SUPRA_Row_0________________   QK_BOOT,   KC_TAB,  KC_UP,   _______, KC_INS,  KC_LCTL, KC_RSFT, KC_PGUP, KC_HOME, KC_MINS, KC_EQL,  KC_DEL
-#define ________________SUPRA_Row_1________________   _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PSCR, KC_LSFT, KC_RCTL, KC_PGDN, KC_END,  KC_LBRC, KC_RBRC, KC_BSLS
+#define ________________SUPRA_Row_0________________   QK_BOOT, KC_TAB, KC_UP, _______, KC_INS, KC_LCTL, KC_RSFT, KC_PGUP, KC_HOME, KC_MINS, KC_EQL, KC_DEL
+#define ________________SUPRA_Row_1________________   _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PSCR, KC_LSFT, KC_RCTL, KC_PGDN, KC_END, KC_LBRC, KC_RBRC, KC_BSLS
 #define ________________SUPRA_Row_2________________   _______, KC_PAUS, _______, _______, _______, _______, _______, _______, KC_RGUI, KC_RALT, _______, _______
 #define ________________SUPRA_Row_3________________   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 
@@ -243,10 +243,10 @@ enum {
  * |        |        | gherkin|        |        |        | ENTER  | SHIFT  |        |        |        |        |
  * '-----------------------------------------------------------------------------------------------------------'
  */
-#define _______________SUBTER_Row__0_______________   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,    KC_F8,  KC_F9,         KC_F10,         KC_DEL
-#define _______________SUBTER_Row__1_______________   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,     KC_8,   KC_9,          KC_0,           KC_BSPC
-#define _______________SUBTER_Row__2_______________   _______, KC_F11,  KC_F12,  _______, _______, _______, _______, _______,  KC_RGUI,ALT_T(KC_DOT), CTL_T(KC_BSPC), _______
-#define _______________SUBTER_Row__3_______________   _______, _______, GHERKIN, _______, _______, _______, KC_ENT,  KC_LSFT,  _______,_______,       _______,        _______
+#define _______________SUBTER_Row__0_______________   _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_DEL
+#define _______________SUBTER_Row__1_______________   KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC
+#define _______________SUBTER_Row__2_______________   _______, KC_F11, KC_F12, _______, _______, _______, _______, _______, KC_RGUI, ALT_T(KC_DOT), CTL_T(KC_BSPC), _______
+#define _______________SUBTER_Row__3_______________   _______, _______, GHERKIN, _______, _______, _______, KC_ENT, KC_LSFT, _______, _______, _______, _______
 
 /* Gherkin-Like Numbers
  * .-----------------------------------------------------------------------------------------------------------.
@@ -260,9 +260,9 @@ enum {
  * |        |        |        |        |        |        | ENTER  | SHIFT  | RGUI   |        |        |        |
  * '-----------------------------------------------------------------------------------------------------------'
  */
-#define _______________NUMBERS_Row_0_______________   _______, _______________Gherkin_NUM_0_______________,  KC_BSPC
-#define _______________NUMBERS_Row_1_______________   _______, _______________Gherkin_NUM_1_______________,  _______
-#define _______________NUMBERS_Row_2_______________   _______, _______________Gherkin_NUM_2_______________,  _______
+#define _______________NUMBERS_Row_0_______________   _______, _______________Gherkin_NUM_0_______________, KC_BSPC
+#define _______________NUMBERS_Row_1_______________   _______, _______________Gherkin_NUM_1_______________, _______
+#define _______________NUMBERS_Row_2_______________   _______, _______________Gherkin_NUM_2_______________, _______
 #define _______________NUMBERS_Row_3_______________   _______, _______, _______, _______, _______, _______, KC_ENT, KC_RSFT, KC_RGUI, _______, _______, _______
 
 
@@ -295,7 +295,7 @@ enum {
  */
 #define ______________ETCETERA_Row__0______________   _______, _______________Gherkin_ETC_0_______________, KC_DEL
 #define ______________ETCETERA_Row__1______________   _______, _______________Gherkin_ETC_1_______________, _______
-#define ______________ETCETERA_Row__2______________   _______, _______________Gherkin_ETC_2_______________, _______   
+#define ______________ETCETERA_Row__2______________   _______, _______________Gherkin_ETC_2_______________, _______
 #define ______________ETCETERA_Row__3______________   _______, _______, _______, _______, _______, _______, LALT(LCTL(KC_DEL)), _______, _______, _______, _______, _______
 
 /* Single 4x4 board only
@@ -310,9 +310,9 @@ enum {
  * '-----------------------------------'
  */
 
-#define _______________NUMPAD_Row__0_______________  KC_KP_7, KC_KP_8, KC_KP_9,   KC_BSPC
-#define _______________NUMPAD_Row__1_______________  KC_KP_4, KC_KP_5, KC_KP_6,   KC_SPC
-#define _______________NUMPAD_Row__2_______________  KC_KP_1, KC_KP_2, KC_KP_3,   KC_PENT
+#define _______________NUMPAD_Row__0_______________  KC_KP_7, KC_KP_8, KC_KP_9, KC_BSPC
+#define _______________NUMPAD_Row__1_______________  KC_KP_4, KC_KP_5, KC_KP_6, KC_SPC
+#define _______________NUMPAD_Row__2_______________  KC_KP_1, KC_KP_2, KC_KP_3, KC_PENT
 //#define _______________NUMPAD_Row__3_______________  KC_KP_0, TD(LYR_TAP_DANCE), KC_KP_DOT, KC_PMNS
 #define _______________NUMPAD_Row__3_______________  KC_KP_0, LT(_FN, KC_PSLS), KC_KP_DOT, KC_PMNS
 
@@ -325,6 +325,6 @@ enum {
  * |  UG_hue-   | UG_hue+   |  UG_sat-  |  UG_sat+  |             |             |     |     |     |QWERTY|
  * '-----------------------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_FN_0________________			BL_BRTG, BL_DEC,  BL_INC,  BL_TOGG, BL_STEP, BL_ON,   _______, _______, _______, _______
+#define _______________Gherkin_FN_0________________			BL_BRTG, BL_DEC, BL_INC, BL_TOGG, BL_STEP, BL_ON, _______, _______, _______, _______
 #define _______________Gherkin_FN_1________________			RGB_M_B, RGB_VAD, RGB_VAI, RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______
 #define _______________Gherkin_FN_2________________			RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, _______, _______, _______, _______, _______, QWERTY

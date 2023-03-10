@@ -7,22 +7,22 @@
 
 //MIGHT HAVE TO SPLIT THIS INTO TWO CONDITIONS
 #if defined(TAP_DANCE_ENABLE) && defined(KEYBOARD_lets_split_rev2) || defined(KEYBOARD_keebio_iris_rev2)
-  //Kailh Coppers activate quickly and don't need a long tapping term
-  #define TAPPING_TERM 180
+//Kailh Coppers activate quickly and don't need a long tapping term
+#define TAPPING_TERM 180
 #elif defined(TAP_DANCE_ENABLE) && defined(KEYBOARD_bigswitch)
-  #define TAPPING_TERM 700
+#define TAPPING_TERM 700
 #elif defined(KEYBOARD_georgi)
-  #define TAPPING_TERM 200
+#define TAPPING_TERM 200
 #else
-  #define TAPPING_TERM 145
+#define TAPPING_TERM 145
 #endif
 
 //Mousekey Settings
-#if defined (MOUSEKEY_ENABLE) 
+#if defined(MOUSEKEY_ENABLE)
 #if defined(KEYBOARD_georgi)
-  #define MOUSEKEY_INTERVAL 20
+#define MOUSEKEY_INTERVAL 20
 #else
-  #define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_INTERVAL 16
 #endif
 #define MK_KINETIC_SPEED
 #define MOUSEKEY_DELAY 0
@@ -34,7 +34,7 @@
 #ifndef NO_DEBUG
 #define NO_DEBUG
 #endif // !NO_DEBUG
-#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+#if!defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
 #define NO_PRINT
 #endif // !NO_PRINT
 #define NO_ACTION_MACRO
