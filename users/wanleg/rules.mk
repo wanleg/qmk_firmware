@@ -1,5 +1,6 @@
 SRC += wanleg.c
-ifeq($(strip $(TAP_DANCE_ENABLE)), yes)
+
+ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
 SRC += tapdances.c
 endif
 
@@ -8,19 +9,19 @@ EXTRAKEY_ENABLE = yes #Audio control and System control
 
 #If using a ProMicro and it has the QMK DFU bootloader instead of Caterina,
 #run "make <keyboard>:<keymap> dfu=qmk" when compiling to ensure it is flagged properly after being flashed
-ifeq($(strip $(dfu)), qmk)
-BOOTLOADER = qmk - dfu
+ifeq ($(strip $(dfu)), qmk)
+BOOTLOADER = qmk-dfu
 endif
 
 #use alternate settings for boards using ProMicro instead of Micro
 #example usage: make 4x4:wanleg PM = yes
-ifeq($(strip $(PM)), yes)
+ifeq ($(strip $(PM)), yes)
 OPT_DEFS += -DPRO_MICRO
 endif
 
 #use alternate settings for boards using "Adafruit Feather 32u4 Bluefruit LE" instead of Micro
 #example usage: make 5x5:wanleg BT = yes
-ifeq($(strip $(BT)), yes)
+ifeq ($(strip $(BT)), yes)
 #opt_defs for alternate pin usage
 OPT_DEFS += -DBLUEFRUIT
 #Adafruit Bluefruit controller settings
@@ -35,15 +36,15 @@ endif
 
 #move numpad to Left / Centre / Right(default ) on 5x15 boards
 #example usage: make 4x4:wanleg padc = yes
-ifeq($(strip $(padc)), yes)
+ifeq ($(strip $(padc)), yes)
 OPT_DEFS += -DPADC
 endif
-ifeq($(strip $(padl)), yes)
+ifeq ($(strip $(padl)), yes)
 OPT_DEFS += -DPADL
 endif
 
 #change gherkin orientation(i.e.move USB port from right side to left side)
 #example usage: make gherkin:wanleg flip = yes
-ifeq($(strip $(flip)), yes)
+ifeq ($(strip $(flip)), yes)
 OPT_DEFS += -DFLIP
 endif
