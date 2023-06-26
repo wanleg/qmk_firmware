@@ -136,7 +136,8 @@ enum {
  */
 #define _______________Gherkin_Row_0_______________			TD(TD_Q_ESC), KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P
 #define _______________Gherkin_Row_1_______________			KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, SFT_T(KC_SPC)
-#define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), KC_X, KC_C, LT(gNUM, KC_V), LT(gETC, KC_B), LT(_FN, KC_N), LT(gDIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC)
+//#define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), KC_X, KC_C, LT(gNUM, KC_V), LT(gETC, KC_B), LT(_FN, KC_N), LT(gDIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), CTL_T(KC_BSPC)
+#define _______________Gherkin_Row_2_______________			SFT_T(KC_Z), KC_X, LCTL_T(KC_C), LT(gNUM, KC_V), LT(gETC, KC_B), LT(_FN, KC_N), LT(gDIR, KC_M), GUI_T(KC_COMM), ALT_T(KC_DOT), RCTL_T(KC_BSPC)
 
 /* Gherkin Directional Keys
  * .-----------------------------------------------------------------------------------------.
@@ -325,6 +326,6 @@ enum {
  * |  UG_hue-   | UG_hue+   |  UG_sat-  |  UG_sat+  |             |             |     |     |     |QWERTY|
  * '-----------------------------------------------------------------------------------------------------'
  */
-#define _______________Gherkin_FN_0________________			BL_BRTG, BL_DEC, BL_INC, BL_TOGG, BL_STEP, BL_ON, _______, _______, _______, _______
+#define _______________Gherkin_FN_0________________			BL_BRTG, BL_DOWN, BL_UP,   BL_TOGG, BL_STEP, BL_ON, _______, _______, _______, _______
 #define _______________Gherkin_FN_1________________			RGB_M_B, RGB_VAD, RGB_VAI, RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______
 #define _______________Gherkin_FN_2________________			RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, _______, _______, _______, _______, _______, QWERTY
