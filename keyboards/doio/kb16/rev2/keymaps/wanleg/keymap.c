@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,    KC_W,    KC_E,    KC_R,    _______,
     KC_A,    KC_S,    KC_D,    KC_F,    _______,
     KC_RCTL, KC_LALT, KC_SPC,  KC_SPC),
-//  DASHER, _______, _______, _______),
+//    DASHER, _______, _______, _______),
 
   [_FN2] = LAYOUT(
     _______, _______, _______, _______, RGB_MOD,
