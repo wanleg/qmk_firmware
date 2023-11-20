@@ -45,9 +45,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GK] = LAYOUT_wrapper(
         QK_GESC, _______________Gherkin_Row_0_______________,    KC_BSPC,
-        KC_TAB,  _______________Gherkin_Row_1_______________,    KC_ENT,
+        KC_TAB,  _______________Gherkin_Row_1_______________,    KC_QUOT,
         KC_LSFT, SFT_T(KC_Z),	 KC_X,    KC_C,    LT(ETC, KC_V),    KC_B, KC_N, KC_M,  KC_COMM, ALT_T(KC_DOT),    RCTL_T(KC_BSPC), KC_RSFT,
-        KC_LCTL, KC_LGUI, KC_LALT,          NUMBER,          LT(DIRECTION, KC_SPC),                  KC_RALT, KC_RGUI, MO(_FN), KC_RCTL
+        KC_LALT, KC_LGUI, KC_LCTL,          NUMBER,          LT(DIRECTION, KC_SPC),                  KC_RGUI, KC_RALT, MO(_FN), KC_RCTL
     ),
 
     [NUM] = LAYOUT_wrapper(
