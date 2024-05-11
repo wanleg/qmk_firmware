@@ -1,5 +1,4 @@
-//DO NOT COMPILE THIS AS A 'wanleg' KEYMAP
-//COPY TO 'default' AND COMPILE AS DEFAULT
+//if there are any issues with compiling, copy to 'default' folder and compile from there
 #include QMK_KEYBOARD_H
 
 #define LAYOUT_k10Pro_base( \
