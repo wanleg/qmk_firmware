@@ -39,7 +39,7 @@
         }
     },
     "processor": "atmega32u4",
-    "bootloader": "atmel-dfu",
+    "bootloader": "caterina",
     "layouts": {
         "LAYOUT": {
             "layout": [
