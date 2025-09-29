@@ -21,29 +21,29 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
         return false; 
     }
-    if (index == 0) { // Left outside
-        if (clockwise) {
-            tap_code(MS_UP);
-        } else {
-            tap_code(MS_DOWN);
-        }
-    } else if (index == 1) { // Left inside
-        if (clockwise) {
-            tap_code16(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    } else if (index == 2) { // Right outside 
-        if (clockwise) {
-            tap_code16(MS_WHLR);
-        } else {
-            tap_code16(MS_WHLL);
-        }
-    } else if (index == 3) { // Right inside 
+    if (index == 0) { // Left roller
         if (clockwise) {
             tap_code(MS_WHLD);
         } else {
             tap_code(MS_WHLU);
+        }
+    } else if (index == 1) { // Left encoder
+        if (clockwise) {
+            tap_code16(S(KC_TAB));
+        } else {
+            tap_code(KC_TAB);
+        }
+    } else if (index == 2) { // Right roller
+        if (clockwise) {
+            tap_code16(S(MS_WHLD));
+        } else {
+            tap_code16(S(MS_WHLU));
+        }
+    } else if (index == 3) { // Right encoder
+        if (clockwise) {
+            tap_code(KC_RIGHT);
+        } else {
+            tap_code(KC_LEFT);
         }
     }
 
@@ -65,23 +65,21 @@ bool oled_task_kb(void) {
    }
    if (is_keyboard_master()) {
        // Host Keyboard Layer Status
-       oled_write_P(PSTR("\n\n\n\n\n"), false);
-       oled_write_P(PSTR("Current\n"), false);
-       oled_write_P(PSTR("Layer:\n"), false);
+       oled_write_P(PSTR("LAYER:\n"), false);
        oled_write_P(PSTR("\n"), false);
 	   
        switch (get_highest_layer(layer_state)) {
            case 0:
-               oled_write_P(PSTR("Base\n\n\n\n"), false);
+               oled_write_P(PSTR("DEFAULT\n\n\n\n"), false);
                break;
-           case 6:
-               oled_write_P(PSTR("Numbers\n\n\n\n"), false);
+           case 3:
+               oled_write_P(PSTR("FUNCTION\n\n\n\n"), false);
                break;
-           case 7:
-               oled_write_P(PSTR("Navigation\n\n\n\n"), false);
+           case 2:
+               oled_write_P(PSTR("SYMBOLS\n\n\n\n"), false);
                break;
-           case 8:
-               oled_write_P(PSTR("Etc...\n\n\n\n"), false);
+           case 1:
+               oled_write_P(PSTR("NAVIGATIONAND\nNUMBERS\n"), false);
                break;
            default:
                oled_write_ln_P(PSTR("Undefined"), false);
