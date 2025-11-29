@@ -16,7 +16,14 @@ void clicked(void) {
 }
 
 void turned(bool clockwise) {
-        tap_code16(clockwise ? MS_WHLL : MS_WHLR);
+    if (IS_LAYER_ON(0)) {
+        tap_code16(clockwise ? MS_WHLR : MS_WHLL);
+    } else if (IS_LAYER_ON(6)) { //NUM layer
+        tap_code16(clockwise ? MS_WHLD : MS_WHLU);
+    } else {
+        tap_code(clockwise ? KC_VOLU : KC_VOLD);
+    }
+
 }
 
 void fix_encoder_action(matrix_row_t current_matrix[]) {
@@ -42,13 +49,15 @@ void fix_encoder_action(matrix_row_t current_matrix[]) {
         if (colABPressed) {
             // A+B followed by A means clockwise
             colABPressed = false;
-            turned(true);
+            //turned(true);
+            turned(false);
         }
     } else if (colB) {
         if (colABPressed) {
             // A+B followed by B means counter-clockwise
             colABPressed = false;
-            turned(false);
+            //turned(false);
+            turned(true);
         }
     }
     current_matrix[ENC_ROW] = 0;
