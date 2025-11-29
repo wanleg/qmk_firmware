@@ -12,11 +12,11 @@ static bool colABPressed   = false;
 static bool encoderPressed = false;
 
 void clicked(void) {
-    tap_code(KC_MPLY);
+    tap_code(KC_MUTE);
 }
 
 void turned(bool clockwise) {
-        tap_code16(clockwise ? MS_WHLR : MS_WHLL);
+        tap_code16(clockwise ? MS_WHLL : MS_WHLR);
 }
 
 void fix_encoder_action(matrix_row_t current_matrix[]) {
